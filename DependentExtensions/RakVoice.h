@@ -168,7 +168,7 @@ public:
 	bool IsInitialized(void) const;
 
 	/// Returns the RakPeerInterface that the object is attached to.
-	/// \return the respective RakPeerInterface, or NULL not attached.
+	/// \return the respective RakPeerInterface, or NULL if not attached.
 	RakPeerInterface* GetRakPeerInterface(void) const;
 
 	/// How many bytes are on the write buffer, waiting to be passed to a call to RakPeer::Send (internally)

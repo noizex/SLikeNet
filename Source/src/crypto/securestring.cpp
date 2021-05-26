@@ -32,7 +32,7 @@ namespace SLNet
 
 				// #med - add missing size_t overflow check if maxBufferSize == size_t::max()
 				// #high - raise exception upon failure to retrieve the proper size
-				// note: we don't encrypt the trailing null terminator -> only requiring maxBufferSize amount of data here
+				// note: we don't encrypt the trailing null-terminator -> only requiring maxBufferSize amount of data here
 				m_EncryptedBufferSize = maxBufferSize;
 				SLNET_VERIFY(CCryptoManager::GetRequiredEncryptionBufferSize(m_EncryptedBufferSize));
 
@@ -62,7 +62,7 @@ namespace SLNet
 
 			size_t CSecureString::AddChar(char* character)
 			{
-				// #med skip or error out if '\0'? since this would just be pointless as the trailing null terminator is written implicitly upon decryption...
+				// #med skip or error out if '\0'? since this would just be pointless as the trailing null-terminator is written implicitly upon decryption...
 				if (character == nullptr) {
 					// #high - add error output
 					return 0;
@@ -209,7 +209,7 @@ namespace SLNet
 					return "";
 				}
 
-				// write trailing null terminator (which is not part of the encrypted data)
+				// write trailing null-terminator (which is not part of the encrypted data)
 				m_UnencryptedBuffer[m_numBufferUsed] = '\0';
 				m_wasFlushed = false;
 				return m_UnencryptedBuffer;

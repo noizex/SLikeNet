@@ -265,7 +265,7 @@ int main(void)
 			}
 
 			// message is the data to send
-			// strlen(message)+1 is to send the null terminator
+			// strlen(message)+1 is to send the null-terminator
 			// HIGH_PRIORITY doesn't actually matter here because we don't use any other priority
 			// RELIABLE_ORDERED means make sure the message arrives in the right order
 			client->Send(message, (int) strlen(message)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, SLNet::UNASSIGNED_SYSTEM_ADDRESS, true);

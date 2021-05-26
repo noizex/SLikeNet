@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2016-2017, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2016-2019, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -246,7 +246,7 @@ int main(void)
 		strncat_s(message2, message, sizeof(message2) - strlen(prefix) - 1);
 	
 		// message2 is the data to send
-		// strlen(message2)+1 is to send the null terminator
+		// strlen(message2)+1 is to send the null-terminator
 		// HIGH_PRIORITY doesn't actually matter here because we don't use any other priority
 		// RELIABLE_ORDERED means make sure the message arrives in the right order
 		// We arbitrarily pick 0 for the ordering stream
