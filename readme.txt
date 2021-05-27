@@ -1085,7 +1085,7 @@ DependentExtensions/openssl-1.0.0d/*.dll | [REMOVED]                   | [2]
 [1] To prevent changes to path whenever the external is upgraded.
     Additionally lib, bin, and include directories contain subdirectories for
     the different platforms/configurations now.
-[2] Removes redundant file. Provided also in
+[2] Removed redundant files. Provided also in
     DependentExtensions/openssl-1.0.0d/bin/*.dll
 
 3.6 Configuring SLikeNet
