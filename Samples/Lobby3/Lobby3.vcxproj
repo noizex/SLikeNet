@@ -95,7 +95,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>./../../Source/include;./../../DependentExtensions;$(SolutionDir)DependentExtensions\jansson-2.4\src;$(SolutionDir)DependentExtensions/openssl/include/include/x86;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./../../Source/include;./../../DependentExtensions;$(SolutionDir)DependentExtensions\jansson-2.4\src;$(SolutionDir)DependentExtensions/openssl/include/x86;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;OPEN_SSL_CLIENT_SUPPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
