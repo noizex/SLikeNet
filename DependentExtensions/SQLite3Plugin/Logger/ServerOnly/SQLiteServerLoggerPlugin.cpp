@@ -2,7 +2,7 @@
  * This file was taken from RakNet 4.082.
  * Please see licenses/RakNet license.txt for the underlying license and related copyright.
  *
- * Modified work: Copyright (c) 2016-2018, SLikeSoft UG (haftungsbeschränkt)
+ * Modified work: Copyright (c) 2016-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  * This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  * license found in the license.txt file in the root directory of this source tree.
@@ -1150,7 +1150,7 @@ unsigned int SQLiteServerLoggerPlugin::CreateDBHandle(SLNet::RakString dbIdentif
 		char       buf[80];
 
 		/* Get the current time */
-		now = time(NULL);
+		now = time(nullptr);
 
 		/* Format and print the time, "ddd yyyy-mm-dd hh:mm:ss zzz" */
 		localtime_s(&ts, &now);

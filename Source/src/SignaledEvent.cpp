@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2017, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2017-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -212,7 +212,7 @@ void SignaledEvent::WaitOnEvent(int timeoutMs)
 
 		int rc;
 		struct timeval    tp;
-		rc =  gettimeofday(&tp, NULL);
+		rc =  gettimeofday(&tp, nullptr);
 		ts.tv_sec  = tp.tv_sec;
 		ts.tv_nsec = tp.tv_usec * 1000;
 // #endif

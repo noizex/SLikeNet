@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2016-2019, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2016-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -147,7 +147,7 @@ bool TCPInterface::CreateListenSocket(unsigned short port, unsigned short maxInc
 	Itoa(port,portStr,10);
 
 	getaddrinfo(0, portStr, &hints, &servinfo);
-	for (aip = servinfo; aip != NULL; aip = aip->ai_next)
+	for (aip = servinfo; aip != nullptr; aip = aip->ai_next)
 	{
 		// Open socket. The address type depends on what
 		// getaddrinfo() gave us.
@@ -810,19 +810,19 @@ __TCPSOCKET__ TCPInterface::SocketConnect(const char* host, unsigned short remot
 #if RAKNET_SUPPORT_IPV6!=1
 	sockaddr_in serverAddress;
 
-	struct addrinfo *curAddress = NULL;
-	int err = getaddrinfo(host, NULL, NULL, &curAddress);
+	struct addrinfo *curAddress = nullptr;
+	int err = getaddrinfo(host, nullptr, nullptr, &curAddress);
 
 	// #med This should also work with IPv6 addresses in principle. However the old code in RakNet only worked with IPv4. Hence this behavior change won't be in MaxNet 0.1.
 	// get the (first) IPv4 address
-	while(curAddress != NULL) {
+	while(curAddress != nullptr) {
 		if (curAddress->ai_family == AF_INET) {
 			break; // found an IPv4 address
 		}
 		curAddress = curAddress->ai_next;
 	}
 
-	if (curAddress == NULL)
+	if (curAddress == nullptr)
 		return 0;
 
 	if (err != 0)

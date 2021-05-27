@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2017, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2017-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -54,7 +54,7 @@ bool FMODVoiceAdapter::SetupAdapter(FMOD::System *fmodSystem, RakVoice *rakVoice
 	RakAssert(fmodSystem);
 	RakAssert(rakVoice);
 	// Make sure rakVoice was initialized
-	RakAssert((rakVoice->IsInitialized())&&(rakVoice->GetRakPeerInterface()!=NULL));
+	RakAssert((rakVoice->IsInitialized())&&(rakVoice->GetRakPeerInterface()!= nullptr));
 
 	this->fmodSystem = fmodSystem;
 	this->rakVoice = rakVoice;
@@ -107,7 +107,7 @@ void FMODVoiceAdapter::Release(void)
 {
 	FMOD_RESULT err;
 
-	if (fmodSystem==NULL) return;
+	if (fmodSystem== nullptr) return;
 
 	// Stop recording
 	bool recording=false;
@@ -125,16 +125,16 @@ void FMODVoiceAdapter::Release(void)
 		channel->stop();
 	}
 
-	if (recSound!=NULL)
+	if (recSound!= nullptr)
 	{
 		recSound->release();
-		recSound = NULL;
+		recSound = nullptr;
 	}
 
-	if (sound!=NULL)
+	if (sound!= nullptr)
 	{
 		sound->release();
-		sound = NULL;
+		sound = nullptr;
 	}
 	
 }

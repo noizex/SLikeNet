@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2016-2017, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2016-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -51,7 +51,7 @@ LONG ProcessException(struct _EXCEPTION_POINTERS *ExceptionInfo)
 	if ((CrashReporter::controls.actionToTake & AOC_SILENT_MODE) == 0)
 	{
 		sprintf_s(appDescriptor, "%s has crashed.\nGenerate a report?",  CrashReporter::controls.appName);
-		if (::MessageBoxA( NULL, appDescriptor, "Crash Reporter", MB_YESNO )==IDNO)
+		if (::MessageBoxA(nullptr, appDescriptor, "Crash Reporter", MB_YESNO )==IDNO)
 		{
 			return EXCEPTION_CONTINUE_SEARCH;
 		}
@@ -86,7 +86,7 @@ LONG ProcessException(struct _EXCEPTION_POINTERS *ExceptionInfo)
 		strcat_s(dumpFilepath, dumpFilename);
 		strcat_s(dumpFilepath, ".dmp");
 
-		HANDLE hFile = CreateFileA(dumpFilepath,GENERIC_WRITE, FILE_SHARE_READ,NULL,OPEN_ALWAYS,FILE_ATTRIBUTE_NORMAL,NULL);
+		HANDLE hFile = CreateFileA(dumpFilepath,GENERIC_WRITE, FILE_SHARE_READ, nullptr,OPEN_ALWAYS,FILE_ATTRIBUTE_NORMAL, nullptr);
 		if (hFile==INVALID_HANDLE_VALUE)
 			return EXCEPTION_CONTINUE_SEARCH;
 
@@ -100,9 +100,9 @@ LONG ProcessException(struct _EXCEPTION_POINTERS *ExceptionInfo)
 			GetCurrentProcessId(),
 			hFile,
 			(MINIDUMP_TYPE)CrashReporter::controls.minidumpType,
-			ExceptionInfo ? &eInfo : NULL,
-			NULL,
-			NULL)==false)
+			ExceptionInfo ? &eInfo : nullptr,
+			nullptr,
+			nullptr)==false)
 			return EXCEPTION_CONTINUE_SEARCH;
 
 		CloseHandle(hFile);
@@ -193,12 +193,12 @@ LONG WINAPI CrashExceptionFilter( struct _EXCEPTION_POINTERS *ExceptionInfo )
 
 void DumpMiniDump(PEXCEPTION_POINTERS excpInfo)
 {
-	if (excpInfo == NULL) 
+	if (excpInfo == nullptr)
 	{
 		// Generate exception to get proper context in dump
 		__try 
 		{
-			RaiseException(EXCEPTION_BREAKPOINT, 0, 0, NULL);
+			RaiseException(EXCEPTION_BREAKPOINT, 0, 0, nullptr);
 		} 
 		__except(DumpMiniDump(GetExceptionInformation()),EXCEPTION_EXECUTE_HANDLER) 
 		{

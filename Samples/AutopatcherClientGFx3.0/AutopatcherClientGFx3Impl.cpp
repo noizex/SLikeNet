@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2016-2017, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2016-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -264,15 +264,15 @@ void AutopatcherClientGFx3Impl::OpenSite(const FxDelegateArgs& pparams)
 	const char *siteType = pparams[0].GetString();
 	if (_stricmp(siteType, "help")==0)
 	{
-		ShellExecute(NULL, "open", "http://www.jenkinssoftware.com/raknet/manual/autopatcher.html",	NULL, NULL, SW_SHOWNORMAL);
+		ShellExecute(nullptr, "open", "http://www.jenkinssoftware.com/raknet/manual/autopatcher.html", nullptr, nullptr, SW_SHOWNORMAL);
 	}
 	else if (_stricmp(siteType, "raknet")==0)
 	{
-		ShellExecute(NULL, "open", "http://www.jenkinssoftware.com/",	NULL, NULL, SW_SHOWNORMAL);
+		ShellExecute(nullptr, "open", "http://www.jenkinssoftware.com/", nullptr, nullptr, SW_SHOWNORMAL);
 	}
 	else if (_stricmp(siteType, "scaleform")==0)
 	{
-		ShellExecute(NULL, "open", "https://www.scaleform.com/",	NULL, NULL, SW_SHOWNORMAL);
+		ShellExecute(nullptr, "open", "https://www.scaleform.com/", nullptr, nullptr, SW_SHOWNORMAL);
 	}
 }
 void AutopatcherClientGFx3Impl::PressedConnect(const FxDelegateArgs& pparams)

@@ -65,8 +65,8 @@ void Rackspace2::Update(void)
 	{
 		if (responseReceived.IsEmpty()==false)
 		{
-			static FILE *fp = NULL;
-			if (fp == NULL)
+			static FILE *fp = nullptr;
+			if (fp == nullptr)
 				fopen_s(&fp, "responses.txt", "wt");
 			// #low - add nullptr-check (incl. error logging) for fp
 			fprintf(fp, responseReceived.C_String());

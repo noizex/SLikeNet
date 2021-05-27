@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2016-2017, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2016-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -164,7 +164,7 @@ bool VerifyDownloadMatchesUpload(int requiredRowCount, int testRowIndex)
 	SLNet::RakString columnName;
 	SLNet::RakString value;
 	unsigned int i;
-	DataStructures::Table::Row *row = games->GetRowByIndex(testRowIndex,NULL);
+	DataStructures::Table::Row *row = games->GetRowByIndex(testRowIndex, nullptr);
 	const DataStructures::List<DataStructures::Table::ColumnDescriptor>& columns = games->GetColumns();
 	unsigned int colIndex;
 	// +4 comes from automatic fields

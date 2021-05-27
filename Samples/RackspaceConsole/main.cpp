@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2016-2017, SLikeSoft UG (haftungsbeschrÃ¤nkt)
+ *  Modified work: Copyright (c) 2016-2020, SLikeSoft UG (haftungsbeschrÃ¤nkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -161,7 +161,7 @@ class DisplayHTMLPage : public SLNet::RackspaceEventCallback_Default
 			fclose(fp);
 			TCHAR szDirectory[MAX_PATH] = "";
 			GetCurrentDirectory(sizeof(szDirectory) - 1, szDirectory);
-			ShellExecute(NULL, "open", fileName.C_String(), NULL, szDirectory, SW_SHOWNORMAL);
+			ShellExecute(nullptr, "open", fileName.C_String(), nullptr, szDirectory, SW_SHOWNORMAL);
 		}
 		*/
 		printf("%s completed with result %s\n", callbackName, SLNet::Rackspace::EventTypeToString(eventType));

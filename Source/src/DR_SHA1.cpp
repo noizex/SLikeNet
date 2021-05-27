@@ -7,7 +7,7 @@
 */
 
 /*
- * Modified work : Copyright(c) 2016-2017, SLikeSoft UG(haftungsbeschränkt)
+ * Modified work : Copyright(c) 2016-2020, SLikeSoft UG(haftungsbeschränkt)
  *
  * This source code was modified by SLikeSoft. Modifications in this file are put under the public domain.
  * Alternatively you are permitted to license the modifications under the MIT license, if you so desire. The
@@ -146,13 +146,13 @@ void CSHA1::Update(const UINT_8* pbData, UINT_32 uLen)
 #ifdef SHA1_UTILITY_FUNCTIONS
 bool CSHA1::HashFile(const TCHAR* tszFileName)
 {
-	if(tszFileName == NULL) return false;
+	if(tszFileName == nullptr) return false;
 
 	FILE* fpIn = _tfopen(tszFileName, _T("rb"));
-	if(fpIn == NULL) return false;
+	if(fpIn == nullptr) return false;
 
 	UINT_8* pbData = new UINT_8[SHA1_MAX_FILE_BUFFER];
-	if(pbData == NULL) { fclose(fpIn); return false; }
+	if(pbData == nullptr) { fclose(fpIn); return false; }
 
 	bool bSuccess = true;
 	for(;;)
@@ -208,7 +208,7 @@ void CSHA1::Final()
 #ifdef SHA1_UTILITY_FUNCTIONS
 bool CSHA1::ReportHash(TCHAR* tszReport, REPORT_TYPE rtReportType) const
 {
-	if(tszReport == NULL) return false;
+	if(tszReport == nullptr) return false;
 
 	TCHAR tszTemp[16];
 
@@ -253,7 +253,7 @@ bool CSHA1::ReportHashStl(std::basic_string<TCHAR>& strOut, REPORT_TYPE rtReport
 
 bool CSHA1::GetHash(UINT_8* pbDest20) const
 {
-	if(pbDest20 == NULL) return false;
+	if(pbDest20 == nullptr) return false;
 	memcpy(pbDest20, m_digest, 20);
 	return true;
 }

@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2016-2019, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2016-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -362,11 +362,11 @@ void SystemAddress::ToString_New(bool writePort, char *dest, char portDelineator
 
 	if (address.addr4.sin_family == AF_INET)
 	{
-		ret = getnameinfo((struct sockaddr *) &address.addr4, sizeof(struct sockaddr_in), dest, 22, NULL, 0, NI_NUMERICHOST);
+		ret = getnameinfo((struct sockaddr *) &address.addr4, sizeof(struct sockaddr_in), dest, 22, nullptr, 0, NI_NUMERICHOST);
 	}
 	else
 	{
-		ret = getnameinfo((struct sockaddr *) &address.addr6, sizeof(struct sockaddr_in6), dest, INET6_ADDRSTRLEN, NULL, 0, NI_NUMERICHOST);
+		ret = getnameinfo((struct sockaddr *) &address.addr6, sizeof(struct sockaddr_in6), dest, INET6_ADDRSTRLEN, nullptr, 0, NI_NUMERICHOST);
 	}
 	if (ret != 0)
 	{
@@ -398,11 +398,11 @@ void SystemAddress::ToString_New(bool writePort, char *dest, size_t destLength, 
 	
 	if (address.addr4.sin_family==AF_INET)
 	{
-		ret=getnameinfo((struct sockaddr *) &address.addr4, sizeof(struct sockaddr_in), dest, 22, NULL, 0, NI_NUMERICHOST);
+		ret=getnameinfo((struct sockaddr *) &address.addr4, sizeof(struct sockaddr_in), dest, 22, nullptr, 0, NI_NUMERICHOST);
 	}
 	else
 	{
-		ret=getnameinfo((struct sockaddr *) &address.addr6, sizeof(struct sockaddr_in6), dest, INET6_ADDRSTRLEN, NULL, 0, NI_NUMERICHOST);
+		ret=getnameinfo((struct sockaddr *) &address.addr6, sizeof(struct sockaddr_in6), dest, INET6_ADDRSTRLEN, nullptr, 0, NI_NUMERICHOST);
 	}
 	if (ret!=0)
 	{
@@ -767,10 +767,10 @@ bool RakNetGUID::FromString(const char *source)
 		return false;
 
 #if   defined(WIN32)
-	g=_strtoui64(source, NULL, 10);
+	g=_strtoui64(source, nullptr, 10);
 #else
 	// Changed from g=strtoull(source,0,10); for android
-	g=strtoull(source, (char **)NULL, 10);
+	g=strtoull(source, nullptr, 10);
 #endif
 	return true;
 

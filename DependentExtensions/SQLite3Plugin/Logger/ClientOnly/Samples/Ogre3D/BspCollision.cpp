@@ -16,7 +16,7 @@ LGPL like the rest of the engine.
  * This file was taken from RakNet 4.082.
  * Please see licenses/RakNet license.txt for the underlying license and related copyright.
  *
- * Modified work: Copyright (c) 2017, SLikeSoft UG (haftungsbeschränkt)
+ * Modified work: Copyright (c) 2017-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  * Modifications in this file are free to be used for anything you like.
  * Alternatively you are permitted to license the modifications under the MIT license, if you so desire. The
@@ -301,7 +301,7 @@ int main(int argc, char **argv)
         app.go();
     } catch( Exception& e ) {
 #if OGRE_PLATFORM == OGRE_PLATFORM_WIN32
-        MessageBox( NULL, e.getFullDescription().c_str(), "An exception has occured!", MB_OK | MB_ICONERROR | MB_TASKMODAL);
+        MessageBox(nullptr, e.getFullDescription().c_str(), "An exception has occured!", MB_OK | MB_ICONERROR | MB_TASKMODAL);
 #else
         std::cerr << "An exception has occured: " << e.getFullDescription();
 #endif

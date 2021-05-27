@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2017-2019, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2017-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -87,7 +87,7 @@ public:
 	/// Returns true when we have gotten all the data from the HTTP server.
     /// If this returns true then it's safe to Post() another request
 	/// Deallocate the packet as usual via TCPInterface
-    /// \param packet NULL or a packet associated with our host and port
+    /// \param packet nullptr or a packet associated with our host and port
    void ProcessTCPPacket(Packet *packet);
 
     /// Results of HTTP requests.  Standard response codes are < 999

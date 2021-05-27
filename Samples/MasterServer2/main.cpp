@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2016-2017, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2016-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -28,20 +28,20 @@ void main_sockets(void)
 	serverAddr.sin_family = AF_INET;
 	serverAddr.sin_port = 0;
 	bind(sock,(struct sockaddr *) &serverAddr,sizeof(serverAddr));
-	struct addrinfo *curAddress = NULL;
+	struct addrinfo *curAddress = nullptr;
 
 	// #low disabled (aka: main_sockets() not called) and not IPv6 aware / missing error check for return value
-	getaddrinfo("masterserver2.raknet.com", NULL, NULL, &curAddress);
+	getaddrinfo("masterserver2.raknet.com", nullptr, nullptr, &curAddress);
 
 	// get the (first) IPv4 address
-	while (curAddress != NULL) {
+	while (curAddress != nullptr) {
 		if (curAddress->ai_family == AF_INET) {
 			break; // found an IPv4 address
 		}
 		curAddress = curAddress->ai_next;
 	}
 
-	// #low error handling if curAddress == NULL
+	// #low error handling if curAddress == nullptr
 
 	serverAddr.sin_addr.s_addr = ((struct sockaddr_in *)curAddress->ai_addr)->sin_addr.s_addr;
 	serverAddr.sin_port        = htons(80);

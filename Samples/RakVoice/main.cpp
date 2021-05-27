@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2016-2019, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2016-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -136,11 +136,11 @@ int main(void)
 		Pa_GetDefaultInputDeviceID(),
 		1, // Num channels, whatever that means
 		PA_SAMPLE_TYPE,
-		NULL,
+		nullptr,
 		Pa_GetDefaultOutputDeviceID(),
 		1, // Num channels
 		PA_SAMPLE_TYPE,
-		NULL,
+		nullptr,
 		SAMPLE_RATE,
 		FRAMES_PER_BUFFER,            /* frames per buffer */
 		0,               /* number of buffers, if zero then use default minimum */

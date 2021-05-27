@@ -28,7 +28,7 @@
  * This file was taken from RakNet 4.082.
  * Please see licenses/RakNet license.txt for the underlying license and related copyright.
  *
- * Modified work: Copyright (c) 2016-2017, SLikeSoft UG (haftungsbeschränkt)
+ * Modified work: Copyright (c) 2016-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  * This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  * license found in the license.txt file in the root directory of this source tree.
@@ -164,21 +164,21 @@ bool ApplyPatch(char *old, unsigned int oldsize, char **_new, unsigned int *news
 //	if (fseeko(cpf, 32, SEEK_SET))
 //		err(1, "fseeko(%s, %lld)", argv[3],
 //		(long long)32);
-//	if ((cpfbz2 = BZ2_bzReadOpen(&cbz2err, cpf, 0, 0, NULL, 0)) == NULL)
+//	if ((cpfbz2 = BZ2_bzReadOpen(&cbz2err, cpf, 0, 0, nullptr, 0)) == nullptr)
 //		errx(1, "BZ2_bzReadOpen, bz2err = %d", cbz2err);
 //	if (fopen_s(&dpf, argv[3], "rb") != 0)
 //		err(1, "fopen(%s)", argv[3]);
 //	if (fseeko(dpf, 32 + bzctrllen, SEEK_SET))
 //		err(1, "fseeko(%s, %lld)", argv[3],
 //		(long long)(32 + bzctrllen));
-//	if ((dpfbz2 = BZ2_bzReadOpen(&dbz2err, dpf, 0, 0, NULL, 0)) == NULL)
+//	if ((dpfbz2 = BZ2_bzReadOpen(&dbz2err, dpf, 0, 0, nullptr, 0)) == nullptr)
 //		errx(1, "BZ2_bzReadOpen, bz2err = %d", dbz2err);
 //	if (fopen_s(&epf, argv[3], "rb") != 0)
 //		err(1, "fopen(%s)", argv[3]);
 //	if (fseeko(epf, 32 + bzctrllen + bzdatalen, SEEK_SET))
 //		err(1, "fseeko(%s, %lld)", argv[3],
 //		(long long)(32 + bzctrllen + bzdatalen));
-//	if ((epfbz2 = BZ2_bzReadOpen(&ebz2err, epf, 0, 0, NULL, 0)) == NULL)
+//	if ((epfbz2 = BZ2_bzReadOpen(&ebz2err, epf, 0, 0, nullptr, 0)) == nullptr)
 //		errx(1, "BZ2_bzReadOpen, bz2err = %d", ebz2err);
 	
 	// decompress.Decompress((char*)patch+32, patchsize-32, true);
@@ -195,11 +195,11 @@ bool ApplyPatch(char *old, unsigned int oldsize, char **_new, unsigned int *news
 
 //	if(((fd=_open(argv[1],O_RDONLY | _O_BINARY,0))<0) ||
 //		((oldsize=_lseek(fd,0,SEEK_END))==-1) ||
-//		((old=(unsigned char*)malloc(oldsize+1))==NULL) ||
+//		((old=(unsigned char*)malloc(oldsize+1))==nullptr) ||
 //		(_lseek(fd,0,SEEK_SET)!=0) ||
 //		(_read(fd,old,oldsize)!=oldsize) ||
 //		(_close(fd)==-1)) err(1,"%s",argv[1]);
-//	if((_new=(unsigned char*)malloc(newsize+1))==NULL) err(1,NULL);
+//	if((_new=(unsigned char*)malloc(newsize+1))==nullptr) err(1,nullptr);
 	*_new = new char[*newsize+1];
 
 	oldpos=0;newpos=0;
@@ -384,30 +384,30 @@ int PATCH_main(int argc,char * argv[])
 	if (fseeko(cpf, 32, SEEK_SET))
 		err(1, "fseeko(%s, %lld)", argv[3],
 		(long long)32);
-	if ((cpfbz2 = BZ2_bzReadOpen(&cbz2err, cpf, 0, 0, NULL, 0)) == NULL)
+	if ((cpfbz2 = BZ2_bzReadOpen(&cbz2err, cpf, 0, 0, nullptr, 0)) == nullptr)
 		errx(1, "BZ2_bzReadOpen, bz2err = %d", cbz2err);
 	if (fopen_s(&dpf, argv[3], "rb") != 0)
 		err(1, "fopen(%s)", argv[3]);
 	if (fseeko(dpf, 32 + bzctrllen, SEEK_SET))
 		err(1, "fseeko(%s, %lld)", argv[3],
 		(long long)(32 + bzctrllen));
-	if ((dpfbz2 = BZ2_bzReadOpen(&dbz2err, dpf, 0, 0, NULL, 0)) == NULL)
+	if ((dpfbz2 = BZ2_bzReadOpen(&dbz2err, dpf, 0, 0, nullptr, 0)) == nullptr)
 		errx(1, "BZ2_bzReadOpen, bz2err = %d", dbz2err);
 	if (fopen_s(&epf, argv[3], "rb") != 0)
 		err(1, "fopen(%s)", argv[3]);
 	if (fseeko(epf, 32 + bzctrllen + bzdatalen, SEEK_SET))
 		err(1, "fseeko(%s, %lld)", argv[3],
 		(long long)(32 + bzctrllen + bzdatalen));
-	if ((epfbz2 = BZ2_bzReadOpen(&ebz2err, epf, 0, 0, NULL, 0)) == NULL)
+	if ((epfbz2 = BZ2_bzReadOpen(&ebz2err, epf, 0, 0, nullptr, 0)) == nullptr)
 		errx(1, "BZ2_bzReadOpen, bz2err = %d", ebz2err);
 
 	if(((fd=_open(argv[1],O_RDONLY|O_BINARY,0))<0) ||
 		((oldsize=_lseek(fd,0,SEEK_END))==-1) ||
-		((old=(unsigned char*)malloc(oldsize+1))==NULL) ||
+		((old=(unsigned char*)malloc(oldsize+1))== nullptr) ||
 		(_lseek(fd,0,SEEK_SET)!=0) ||
 		(_read(fd,old,oldsize)!=oldsize) ||
 		(_close(fd)==-1)) err(1,"%s",argv[1]);
-	if((_new=(unsigned char*)malloc(newsize+1))==NULL) err(1,NULL);
+	if((_new=(unsigned char*)malloc(newsize+1))== nullptr) err(1, nullptr);
 
 	oldpos=0;newpos=0;
 	while(newpos<newsize) {

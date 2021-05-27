@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2017, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2017-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -617,5 +617,5 @@ void Lobby2Client_Steam_Impl::OnDetach(void)
 	DataStructures::List<RakNetSocket2* > sockets;
 	rakPeerInterface->GetSockets(sockets);
 	RakAssert(sockets.Size());
-	((RNS2_Windows*)sockets[0])->SetSocketLayerOverride(NULL);
+	((RNS2_Windows*)sockets[0])->SetSocketLayerOverride(nullptr);
 }

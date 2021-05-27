@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2016-2018, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2016-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -464,9 +464,9 @@ void RakString::SetChar( unsigned index, SLNet::RakString s )
 WCHAR * RakString::ToWideChar(void)
 {
 	//
-	// Special case of NULL or empty input string
+	// Special case of nullptr or empty input string
 	//
-	if ( (sharedString->c_str == NULL) || (*sharedString->c_str == '\0') )
+	if ( (sharedString->c_str == nullptr) || (*sharedString->c_str == '\0') )
 	{
 		// Return empty string
 		WCHAR* buf = SLNet::OP_NEW_ARRAY<WCHAR>(1, __FILE__, __LINE__);
@@ -482,7 +482,7 @@ WCHAR * RakString::ToWideChar(void)
 		0,						// Flags
 		sharedString->c_str,    // source UTF-8 string
 		-1,                     // -1 means string is zero-terminated
-		NULL,                   // unused - no conversion done in this step
+		nullptr,                // unused - no conversion done in this step
 		0                       // request size of destination buffer, in WCHAR's
 		);
 
@@ -543,8 +543,8 @@ void RakString::FromWideChar(const wchar_t *source)
                           -1,                    // -1 means string is zero-terminated
                           sharedString->c_str,          // Destination char string
                           static_cast<int>(bufSize),  // Size of buffer
-                          NULL,                  // No default character
-                          NULL );                // Don't care about this flag
+                          nullptr,                  // No default character
+                          nullptr );                // Don't care about this flag
 
 
 }

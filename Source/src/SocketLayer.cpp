@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2016-2018, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2016-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -147,8 +147,8 @@ void SocketLayer::SetSocketOptions( __UDPSOCKET__ listenSocket, bool blockingSoc
 			// http://msdn.microsoft.com/en-us/library/ms740621(VS.85).aspx
 			LPTSTR messageBuffer;
 			FormatMessage( FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
-				NULL, dwIOError, MAKELANGID( LANG_NEUTRAL, SUBLANG_DEFAULT ),  // Default language
-				( LPTSTR ) & messageBuffer, 0, NULL );
+				nullptr, dwIOError, MAKELANGID( LANG_NEUTRAL, SUBLANG_DEFAULT ),  // Default language
+				( LPTSTR ) & messageBuffer, 0, nullptr);
 			// something has gone wrong here...
 			RAKNET_DEBUG_TPRINTF( _T("setsockopt__(SO_BROADCAST) failed:Error code - %lu\n%s"), dwIOError, messageBuffer );
 			//Free the buffer.
@@ -271,8 +271,8 @@ void GetMyIP_Win32( SystemAddress addresses[MAXIMUM_NUMBER_OF_INTERNAL_IDS] )
 		DWORD dwIOError = GetLastError();
 		LPTSTR messageBuffer;
 		FormatMessage( FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
-			NULL, dwIOError, MAKELANGID( LANG_NEUTRAL, SUBLANG_DEFAULT ),  // Default language
-			( LPTSTR ) & messageBuffer, 0, NULL );
+			nullptr, dwIOError, MAKELANGID( LANG_NEUTRAL, SUBLANG_DEFAULT ),  // Default language
+			( LPTSTR ) & messageBuffer, 0, nullptr);
 		// something has gone wrong here...
 		RAKNET_DEBUG_TPRINTF( _T("gethostname failed:Error code - %lu\n%s"), dwIOError, messageBuffer );
 		//Free the buffer.
@@ -287,7 +287,7 @@ void GetMyIP_Win32( SystemAddress addresses[MAXIMUM_NUMBER_OF_INTERNAL_IDS] )
 	PrepareAddrInfoHints(&hints);
 	getaddrinfo(ac, "", &hints, &servinfo);
 
-	for (idx=0, aip = servinfo; aip != NULL && idx < MAXIMUM_NUMBER_OF_INTERNAL_IDS; aip = aip->ai_next, idx++)
+	for (idx=0, aip = servinfo; aip != nullptr && idx < MAXIMUM_NUMBER_OF_INTERNAL_IDS; aip = aip->ai_next, idx++)
 	{
 		if (aip->ai_family == AF_INET)
 		{
@@ -303,8 +303,8 @@ void GetMyIP_Win32( SystemAddress addresses[MAXIMUM_NUMBER_OF_INTERNAL_IDS] )
 
 	freeaddrinfo(servinfo); // free the linked-list
 #else
-	struct addrinfo *curAddress = NULL;
-	int err = getaddrinfo(ac, NULL, NULL, &curAddress);
+	struct addrinfo *curAddress = nullptr;
+	int err = getaddrinfo(ac, nullptr, nullptr, &curAddress);
 
 	if ( err != 0 )
 	{
@@ -312,8 +312,8 @@ void GetMyIP_Win32( SystemAddress addresses[MAXIMUM_NUMBER_OF_INTERNAL_IDS] )
 		int wsaError = WSAGetLastError();
 		LPTSTR messageBuffer;
 		FormatMessage( FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
-			NULL, wsaError, MAKELANGID( LANG_NEUTRAL, SUBLANG_DEFAULT ),  // Default language
-			( LPTSTR ) & messageBuffer, 0, NULL );
+			nullptr, wsaError, MAKELANGID( LANG_NEUTRAL, SUBLANG_DEFAULT ),  // Default language
+			( LPTSTR ) & messageBuffer, 0, nullptr);
 		// something has gone wrong here...
 		RAKNET_DEBUG_TPRINTF( _T("getaddrinfo failed:Error code - %d\n%s"), wsaError, messageBuffer );
 
@@ -322,7 +322,7 @@ void GetMyIP_Win32( SystemAddress addresses[MAXIMUM_NUMBER_OF_INTERNAL_IDS] )
 	#endif
 		return;
 	}
-	while (curAddress != NULL && idx < MAXIMUM_NUMBER_OF_INTERNAL_IDS)
+	while (curAddress != nullptr && idx < MAXIMUM_NUMBER_OF_INTERNAL_IDS)
 	{
 		if (curAddress->ai_family == AF_INET) {
 			addresses[idx].address.addr4 = *((struct sockaddr_in *)curAddress->ai_addr);
@@ -382,8 +382,8 @@ void SocketLayer::GetSystemAddress_Old ( __UDPSOCKET__ s, SystemAddress *systemA
 		DWORD dwIOError = GetLastError();
 		LPTSTR messageBuffer;
 		FormatMessage( FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
-			NULL, dwIOError, MAKELANGID( LANG_NEUTRAL, SUBLANG_DEFAULT ),  // Default language
-			( LPTSTR ) & messageBuffer, 0, NULL );
+			nullptr, dwIOError, MAKELANGID( LANG_NEUTRAL, SUBLANG_DEFAULT ),  // Default language
+			( LPTSTR ) & messageBuffer, 0, nullptr);
 		// something has gone wrong here...
 		RAKNET_DEBUG_TPRINTF( _T("getsockname failed:Error code - %lu\n%s"), dwIOError, messageBuffer );
 
@@ -421,8 +421,8 @@ void SocketLayer::GetSystemAddress ( __UDPSOCKET__ s, SystemAddress *systemAddre
 		DWORD dwIOError = GetLastError();
 		LPVOID messageBuffer;
 		FormatMessage( FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
-			NULL, dwIOError, MAKELANGID( LANG_NEUTRAL, SUBLANG_DEFAULT ),  // Default language
-			( LPTSTR ) & messageBuffer, 0, NULL );
+			nullptr, dwIOError, MAKELANGID( LANG_NEUTRAL, SUBLANG_DEFAULT ),  // Default language
+			( LPTSTR ) & messageBuffer, 0, nullptr);
 		// something has gone wrong here...
 		RAKNET_DEBUG_TPRINTF( _T("getsockname failed:Error code - %d\n%s"), dwIOError, static_cast<LPTSTR>(messageBuffer));
 

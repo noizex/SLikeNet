@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2016-2017, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2016-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -137,17 +137,17 @@ public:
 			SHELLEXECUTEINFOA shellExecuteInfo;
 			shellExecuteInfo.cbSize = sizeof(SHELLEXECUTEINFO);
 			shellExecuteInfo.fMask = SEE_MASK_NOASYNC | SEE_MASK_NO_CONSOLE;
-			shellExecuteInfo.hwnd = NULL;
+			shellExecuteInfo.hwnd = nullptr;
 			shellExecuteInfo.lpVerb = "open";
 			shellExecuteInfo.lpFile = "xdelta3-3.0.6-win32.exe";
 			shellExecuteInfo.lpParameters = commandLine;
-			shellExecuteInfo.lpDirectory = NULL;
+			shellExecuteInfo.lpDirectory = nullptr;
 			shellExecuteInfo.nShow = SW_SHOWNORMAL;
-			shellExecuteInfo.hInstApp = NULL;
+			shellExecuteInfo.hInstApp = nullptr;
 			ShellExecuteExA(&shellExecuteInfo);
 
 			// // ShellExecute is blocking, but if it writes a file to disk that file is not always immediately accessible after it returns. And this only happens in release, and only when not running in the debugger
-			// ShellExecute(NULL, "open", "xdelta3-3.0.6-win32.exe", commandLine, NULL, SW_SHOWNORMAL);
+			// ShellExecute(nullptr, "open", "xdelta3-3.0.6-win32.exe", commandLine, nullptr, SW_SHOWNORMAL);
 
 			sprintf_s(pathToPatch2, "%s/newFile_%s.tmp", WORKING_DIRECTORY, buff);
 			errno_t error = fopen_s(&fpPatch, pathToPatch2, "r+b");

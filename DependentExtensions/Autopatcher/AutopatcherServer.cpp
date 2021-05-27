@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2016-2018, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2016-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -329,7 +329,7 @@ AutopatcherServer::ResultTypeAndBitstream* GetChangelistSinceDateCB(AutopatcherS
 	}
 
 	rtab.operation=AutopatcherServer::ResultTypeAndBitstream::GET_CHANGELIST_SINCE_DATE;
-	rtab.currentDate=(double) time(NULL);
+	rtab.currentDate=(double) time(nullptr);
 	// *returnOutput=true;
 	// return rtab;
 
@@ -412,7 +412,7 @@ PluginReceiveResult AutopatcherServer::OnGetChangelistSinceDate(Packet *packet)
 	{
 		SLNet::BitStream bitStream1;
 		SLNet::BitStream bitStream2;
-		double currentDate=(double) time(NULL);
+		double currentDate=(double) time(nullptr);
 		if (cache_maxTime!=0 && threadData.lastUpdateDate>cache_maxTime)
 		{
 			bitStream2.Write((unsigned char) ID_AUTOPATCHER_FINISHED);
@@ -493,7 +493,7 @@ AutopatcherServer::ResultTypeAndBitstream* GetPatchCB(AutopatcherServer::ThreadD
 	rtab.resultCode = repository->GetPatches(threadData.applicationName.C_String(), threadData.clientList, server->allowDownloadOfOriginalUnmodifiedFiles, rtab.patchList);
 	rtab.operation=AutopatcherServer::ResultTypeAndBitstream::GET_PATCH;
 	rtab.setId=threadData.setId;
-	rtab.currentDate=(double) time(NULL);
+	rtab.currentDate=(double) time(nullptr);
 
 	SLNet::OP_DELETE(threadData.clientList, _FILE_AND_LINE_);
 
@@ -680,7 +680,7 @@ PluginReceiveResult AutopatcherServer::OnGetPatch(Packet *packet)
 				fileListTransfer->Send(&patchList, 0, packet->systemAddress, threadData.setId, priority, orderingChannel, this, 262144*4*4);
 				SLNet::BitStream bitStream1;
 				bitStream1.Write((unsigned char) ID_AUTOPATCHER_FINISHED_INTERNAL);
-				double t =(double) time(NULL);
+				double t =(double) time(nullptr);
 				bitStream1.Write(t);
 				SendUnified(&bitStream1, priority, RELIABLE_ORDERED, orderingChannel, packet->systemAddress, false);
 

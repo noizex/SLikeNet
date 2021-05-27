@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2016-2019, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2016-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -38,14 +38,14 @@ void DomainNameToIP_Berkley_IPV4And6( const char *domainName, char ip[65] )
 	hints.ai_family = AF_UNSPEC; // AF_INET or AF_INET6 to force version
 	hints.ai_socktype = SOCK_DGRAM;
 
-	if ((status = getaddrinfo(domainName, NULL, &hints, &res)) != 0) {
+	if ((status = getaddrinfo(domainName, nullptr, &hints, &res)) != 0) {
 		// #high - review/update callers - some unnecessarily initialize ip unnecessarily
 		ip[0] = '\0';
 		return;
 	}
 
 	p=res;
-// 	for(p = res;p != NULL; p = p->ai_next) {
+// 	for(p = res;p != nullptr; p = p->ai_next) {
 		void *addr;
 //		char *ipver;
 
@@ -64,7 +64,7 @@ void DomainNameToIP_Berkley_IPV4And6( const char *domainName, char ip[65] )
 			addr = &(ipv6->sin6_addr);
 			// inet_ntop function does not exist on windows
 			// http://www.mail-archive.com/users@ipv6.org/msg02107.html
-			getnameinfo((struct sockaddr *)ipv6, sizeof(struct sockaddr_in6), ip, sizeof(ip), NULL, 0, NI_NUMERICHOST);
+			getnameinfo((struct sockaddr *)ipv6, sizeof(struct sockaddr_in6), ip, sizeof(ip), nullptr, 0, NI_NUMERICHOST);
 		}
 		freeaddrinfo(res); // free the linked list
 //	}
@@ -78,10 +78,10 @@ void DomainNameToIP_Berkley_IPV4And6( const char *domainName, char ip[65] )
 void DomainNameToIP_Berkley_IPV4( const char *domainName, char ip[65] )
 {
 	// Use inet_addr instead? What is the difference?
-	struct addrinfo *addressinfo = NULL;
+	struct addrinfo *addressinfo = nullptr;
 	// needed for getaddrinfo
 	WSAStartupSingleton::AddRef();
-	int error = getaddrinfo(domainName, NULL, NULL, &addressinfo);
+	int error = getaddrinfo(domainName, nullptr, nullptr, &addressinfo);
 	WSAStartupSingleton::Deref();
 
 	if ( error != 0 || addressinfo == 0 )
@@ -93,14 +93,14 @@ void DomainNameToIP_Berkley_IPV4( const char *domainName, char ip[65] )
 	}
 
 	// get the (first) IPv4 address
-	while (addressinfo != NULL) {
+	while (addressinfo != nullptr) {
 		if (addressinfo->ai_family == AF_INET) {
 			break; // found an IPv4 address
 		}
 		addressinfo = addressinfo->ai_next;
 	}
 
-	if (addressinfo == NULL) {
+	if (addressinfo == nullptr) {
 		return;
 	}
 

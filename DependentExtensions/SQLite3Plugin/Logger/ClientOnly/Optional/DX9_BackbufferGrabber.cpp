@@ -2,7 +2,7 @@
  * This file was taken from RakNet 4.082.
  * Please see licenses/RakNet license.txt for the underlying license and related copyright.
  *
- * Modified work: Copyright (c) 2017, SLikeSoft UG (haftungsbeschränkt)
+ * Modified work: Copyright (c) 2017-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  * This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  * license found in the license.txt file in the root directory of this source tree.
@@ -42,7 +42,7 @@ void DX9_BackbufferGrabber::InitBackbufferGrabber(LPDIRECT3DDEVICE9 pd3dDevice, 
 
 	HRESULT hr;
 	// KevinJ: Surface to copy to in system memory
-	hr = deviceUsedToInit->CreateOffscreenPlainSurface(width, height, D3DFMT_A8R8G8B8,D3DPOOL_SYSTEMMEM, &pDestSurface,NULL);
+	hr = deviceUsedToInit->CreateOffscreenPlainSurface(width, height, D3DFMT_A8R8G8B8,D3DPOOL_SYSTEMMEM, &pDestSurface, nullptr);
 	if (hr!=S_OK) return;
 	// Surface to downsize to
 	hr = deviceUsedToInit->CreateRenderTarget(
@@ -53,7 +53,7 @@ void DX9_BackbufferGrabber::InitBackbufferGrabber(LPDIRECT3DDEVICE9 pd3dDevice, 
 		0,
 		false,
 		&pRenderTargetSurface,
-		NULL
+		nullptr
 		);
 }
 void DX9_BackbufferGrabber::LockBackbufferCopy(SLNet::RGBImageBlob *blob)
@@ -64,7 +64,7 @@ void DX9_BackbufferGrabber::LockBackbufferCopy(SLNet::RGBImageBlob *blob)
 	IDirect3DSurface9 * pBackBuffer;
 	HRESULT hr;
 	hr = deviceUsedToInit->GetBackBuffer(0,0,D3DBACKBUFFER_TYPE_MONO, &pBackBuffer);
-	hr = deviceUsedToInit->StretchRect(pBackBuffer, NULL, pRenderTargetSurface, NULL, D3DTEXF_NONE);
+	hr = deviceUsedToInit->StretchRect(pBackBuffer, nullptr, pRenderTargetSurface, nullptr, D3DTEXF_NONE);
 	hr = deviceUsedToInit->GetRenderTargetData(pRenderTargetSurface,pDestSurface);
 
 	//	SLNet::TimeMS t1 = SLNet::GetTimeMS();

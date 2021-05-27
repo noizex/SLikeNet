@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2017, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2017-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -46,19 +46,19 @@ RNS2BindResult RNS2_NativeClient::Bind( NativeClientBindParameters *bindParamete
 			pch = strtok ((char*) bindParameters->forceHostAddress,".");
 			if (bindParameters->is_ipv6)
 			{
-				while (pch != NULL && ipIdx<16)
+				while (pch != nullptr && ipIdx<16)
 				{
 					ipv6[ipIdx++]=atoi(pch);
-					pch = strtok (NULL, ".");
+					pch = strtok (nullptr, ".");
 				}
 				NetAddressPrivate::CreateFromIPv6Address(ipv6,0,bindParameters->port,&client_addr);
 			}
 			else
 			{
-				while (pch != NULL && ipIdx<4)
+				while (pch != nullptr && ipIdx<4)
 				{
 					ipv4[ipIdx++]=atoi(pch);
-					pch = strtok (NULL, ".");
+					pch = strtok (nullptr, ".");
 				}
 				NetAddressPrivate::CreateFromIPv4Address(ipv4,bindParameters->port,&client_addr);
 			}
@@ -159,7 +159,7 @@ void RNS2_NativeClient::IssueReceiveCall(void)
 {
 	RNS2RecvStruct *recvFromStruct;
 	recvFromStruct=binding.eventHandler->AllocRNS2RecvStruct(_FILE_AND_LINE_);
-	if (recvFromStruct != NULL)
+	if (recvFromStruct != nullptr)
 	{
 		recvFromStruct->socket=this;
 		PP_CompletionCallback cc = PP_MakeCompletionCallback(onRecvFrom, recvFromStruct);

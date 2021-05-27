@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2016-2019, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2016-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -4532,7 +4532,7 @@ uint64_t RakPeerInterface::Get64BitUniqueRandomNumber(void)
 
 #else
 	struct timeval tv;
-	gettimeofday(&tv, NULL);
+	gettimeofday(&tv, nullptr);
 	return tv.tv_usec + tv.tv_sec * 1000000;
 #endif
 }
@@ -5545,7 +5545,7 @@ bool RakPeer::RunRecvFromOnce( RakNetSocket *s )
 	RakPeer::RecvFromStruct *recvFromStruct;
 
 	recvFromStruct=bufferedPackets.Allocate( _FILE_AND_LINE_ );
-	if (recvFromStruct != NULL)
+	if (recvFromStruct != nullptr)
 	{
 		recvFromStruct->s=s;
 		SocketLayer::RecvFromBlocking(s, this, recvFromStruct->data, &recvFromStruct->bytesRead, &recvFromStruct->systemAddress, &recvFromStruct->timeRead);
@@ -6334,13 +6334,13 @@ RAK_THREAD_DECLARATION(SLNet::UpdateNetworkLoop)
 		rakPeer->threadSleepTimer = 1;
 
 	// 2nd parameter of false means synchronization timer instead of manual-reset timer
-	timerHandle = CreateWaitableTimer( NULL, FALSE, 0 );
+	timerHandle = CreateWaitableTimer( nullptr, FALSE, 0 );
 
 	RakAssert( timerHandle );
 
 	dueTime.QuadPart = -10000 * rakPeer->threadSleepTimer; // 10000 is 1 ms?
 
-	BOOL success = SetWaitableTimer( timerHandle, &dueTime, rakPeer->threadSleepTimer, NULL, NULL, FALSE );
+	BOOL success = SetWaitableTimer( timerHandle, &dueTime, rakPeer->threadSleepTimer, nullptr, nullptr, FALSE );
     (void) success;
 	RakAssert( success );
 

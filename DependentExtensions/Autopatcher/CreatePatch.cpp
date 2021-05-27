@@ -28,7 +28,7 @@
  * This file was taken from RakNet 4.082.
  * Please see licenses/RakNet license.txt for the underlying license and related copyright.
  *
- * Modified work: Copyright (c) 2016-2017, SLikeSoft UG (haftungsbeschränkt)
+ * Modified work: Copyright (c) 2016-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  * This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  * license found in the license.txt file in the root directory of this source tree.
@@ -282,19 +282,19 @@ static bool CreatePatchInternal(const char *old, off_t oldsize, char *_new, off_
 //	if(argc!=4) errx(1,"usage: %s oldfile newfile patchfile\n",argv[0]);
 
 	/* Allocate oldsize+1 bytes instead of oldsize bytes to ensure
-		that we never try to malloc(0) and get a NULL pointer */
+		that we never try to malloc(0) and get a nullptr */
 	/*
 	if(((fd=_open(argv[1],O_RDONLY | _O_BINARY ,0))<0) ||
 		((oldsize=_lseek(fd,0,SEEK_END))==-1) ||
-		((old=malloc(oldsize+1))==NULL) ||
+		((old=malloc(oldsize+1))==nullptr) ||
 		(_lseek(fd,0,SEEK_SET)!=0) ||
 		(_read(fd,old,oldsize)!=oldsize) ||
 		(_close(fd)==-1)) err(1,"%s",argv[1]);
 		*/
 
-	if(((I=(off_t*)malloc((oldsize+1)*sizeof(off_t)))==NULL) ||
-		((V=(off_t*)malloc((oldsize+1)*sizeof(off_t)))==NULL))
-		// err(1,NULL);
+	if(((I=(off_t*)malloc((oldsize+1)*sizeof(off_t)))== nullptr) ||
+		((V=(off_t*)malloc((oldsize+1)*sizeof(off_t)))== nullptr))
+		// err(1,nullptr);
 			return false;
 
 	qsufsort(I,V,(u_char*)old,oldsize);
@@ -302,20 +302,20 @@ static bool CreatePatchInternal(const char *old, off_t oldsize, char *_new, off_
 	free(V);
 
 	/* Allocate newsize+1 bytes instead of newsize bytes to ensure
-		that we never try to malloc(0) and get a NULL pointer */
+		that we never try to malloc(0) and get a nullptr */
 	/*
 	if(((fd=_open(argv[2],O_RDONLY | _O_BINARY ,0))<0) ||
 		((newsize=_lseek(fd,0,SEEK_END))==-1) ||
-		((new=malloc(newsize+1))==NULL) ||
+		((new=malloc(newsize+1))==nullptr) ||
 		(_lseek(fd,0,SEEK_SET)!=0) ||
 		(_read(fd,new,newsize)!=newsize) ||
 		(_close(fd)==-1)) err(1,"%s",argv[2]);
 
 		*/
 
-	if(((db=(u_char*)malloc(newsize+1))==NULL) ||
-		((eb=(u_char*)malloc(newsize+1))==NULL))
-		// err(1,NULL);
+	if(((db=(u_char*)malloc(newsize+1))== nullptr) ||
+		((eb=(u_char*)malloc(newsize+1))== nullptr))
+		// err(1,nullptr);
 		{
 			free(I);
 			return false;
@@ -353,7 +353,7 @@ static bool CreatePatchInternal(const char *old, off_t oldsize, char *_new, off_
 	//outWriteOffset=32;
 
 	/* Compute the differences, writing ctrl as we go */
-//	if ((pfbz2 = BZ2_bzWriteOpen(&bz2err, pf, 9, 0, 0)) == NULL)
+//	if ((pfbz2 = BZ2_bzWriteOpen(&bz2err, pf, 9, 0, 0)) == nullptr)
 //		errx(1, "BZ2_bzWriteOpen, bz2err = %d", bz2err);
 
 	scan=0;len=0;
@@ -460,7 +460,7 @@ static bool CreatePatchInternal(const char *old, off_t oldsize, char *_new, off_
 		};
 	};
 
-//	BZ2_bzWriteClose(&bz2err, pfbz2, 0, NULL, NULL);
+//	BZ2_bzWriteClose(&bz2err, pfbz2, 0, nullptr, nullptr);
 //	if (bz2err != BZ_OK)
 //		errx(1, "BZ2_bzWriteClose, bz2err = %d", bz2err);
 
@@ -482,7 +482,7 @@ static bool CreatePatchInternal(const char *old, off_t oldsize, char *_new, off_
 	
 
 	/* Write compressed diff data */
-//	if ((pfbz2 = BZ2_bzWriteOpen(&bz2err, pf, 9, 0, 0)) == NULL)
+//	if ((pfbz2 = BZ2_bzWriteOpen(&bz2err, pf, 9, 0, 0)) == nullptr)
 //		errx(1, "BZ2_bzWriteOpen, bz2err = %d", bz2err);
 //	BZ2_bzWrite(&bz2err, pfbz2, db, dblen);
 	if (patch.Compress((char*)db,dblen,true)==false)
@@ -497,7 +497,7 @@ static bool CreatePatchInternal(const char *old, off_t oldsize, char *_new, off_
 //	patch.Clear(_FILE_AND_LINE_);
 //	if (bz2err != BZ_OK)
 //		errx(1, "BZ2_bzWrite, bz2err = %d", bz2err);
-//	BZ2_bzWriteClose(&bz2err, pfbz2, 0, NULL, NULL);
+//	BZ2_bzWriteClose(&bz2err, pfbz2, 0, nullptr, nullptr);
 //	if (bz2err != BZ_OK)
 //		errx(1, "BZ2_bzWriteClose, bz2err = %d", bz2err);
 
@@ -511,7 +511,7 @@ static bool CreatePatchInternal(const char *old, off_t oldsize, char *_new, off_
 //	patch.Clear(_FILE_AND_LINE_);
 
 	/* Write compressed extra data */
-//	if ((pfbz2 = BZ2_bzWriteOpen(&bz2err, pf, 9, 0, 0)) == NULL)
+//	if ((pfbz2 = BZ2_bzWriteOpen(&bz2err, pf, 9, 0, 0)) == nullptr)
 //		errx(1, "BZ2_bzWriteOpen, bz2err = %d", bz2err);
 //	BZ2_bzWrite(&bz2err, pfbz2, eb, eblen);
 	if (patch.Compress((char*)eb,eblen,true)==false)
@@ -526,7 +526,7 @@ static bool CreatePatchInternal(const char *old, off_t oldsize, char *_new, off_
 //	patch.Clear(_FILE_AND_LINE_);
 //	if (bz2err != BZ_OK)
 //		errx(1, "BZ2_bzWrite, bz2err = %d", bz2err);
-//	BZ2_bzWriteClose(&bz2err, pfbz2, 0, NULL, NULL);
+//	BZ2_bzWriteClose(&bz2err, pfbz2, 0, nullptr, nullptr);
 //	if (bz2err != BZ_OK)
 //		errx(1, "BZ2_bzWriteClose, bz2err = %d", bz2err);
 
@@ -618,14 +618,14 @@ int TestDiffInMemory(int argc,char *argv[])
 
 	if(((fd=_open(argv[1],O_RDONLY | _O_BINARY ,0))<0) ||
 		((oldsize=_lseek(fd,0,SEEK_END))==-1) ||
-		((old=(char*)malloc(oldsize+1))==NULL) ||
+		((old=(char*)malloc(oldsize+1))== nullptr) ||
 		(_lseek(fd,0,SEEK_SET)!=0) ||
 		(_read(fd,old,oldsize)!=oldsize) ||
 		(_close(fd)==-1)) err(1,"%s",argv[1]);
 
 	if(((fd=_open(argv[2],O_RDONLY | _O_BINARY ,0))<0) ||
 		((newsize=_lseek(fd,0,SEEK_END))==-1) ||
-		((_new=(char*)malloc(newsize+1))==NULL) ||
+		((_new=(char*)malloc(newsize+1))== nullptr) ||
 		(_lseek(fd,0,SEEK_SET)!=0) ||
 		(_read(fd,_new,newsize)!=newsize) ||
 		(_close(fd)==-1)) err(1,"%s",argv[2]);
@@ -670,32 +670,32 @@ int DIFF_main(int argc,char *argv[])
 	if(argc!=4) errx(1,"usage: %s oldfile newfile patchfile\n",argv[0]);
 
 	/* Allocate oldsize+1 bytes instead of oldsize bytes to ensure
-	that we never try to malloc(0) and get a NULL pointer */
+	that we never try to malloc(0) and get a nullptr */
 	if(((fd=_open(argv[1],O_RDONLY|O_BINARY,0))<0) ||
 		((oldsize=_lseek(fd,0,SEEK_END))==-1) ||
-		((old=(u_char*)malloc(oldsize+1))==NULL) ||
+		((old=(u_char*)malloc(oldsize+1))== nullptr) ||
 		(_lseek(fd,0,SEEK_SET)!=0) ||
 		(_read(fd,old,oldsize)!=oldsize) ||
 		(_close(fd)==-1)) err(1,"%s",argv[1]);
 
-	if(((I=(off_t*)malloc((oldsize+1)*sizeof(off_t)))==NULL) ||
-		((V=(off_t*)malloc((oldsize+1)*sizeof(off_t)))==NULL)) err(1,NULL);
+	if(((I=(off_t*)malloc((oldsize+1)*sizeof(off_t)))== nullptr) ||
+		((V=(off_t*)malloc((oldsize+1)*sizeof(off_t)))== nullptr)) err(1, nullptr);
 
 	qsufsort(I,V,old,oldsize);
 
 	free(V);
 
 	/* Allocate newsize+1 bytes instead of newsize bytes to ensure
-	that we never try to malloc(0) and get a NULL pointer */
+	that we never try to malloc(0) and get a nullptr */
 	if(((fd=_open(argv[2],O_RDONLY|O_BINARY,0))<0) ||
 		((newsize=_lseek(fd,0,SEEK_END))==-1) ||
-		((_new=(u_char*)malloc(newsize+1))==NULL) ||
+		((_new=(u_char*)malloc(newsize+1))== nullptr) ||
 		(_lseek(fd,0,SEEK_SET)!=0) ||
 		(_read(fd,_new,newsize)!=newsize) ||
 		(_close(fd)==-1)) err(1,"%s",argv[2]);
 
-	if(((db=(u_char*)malloc(newsize+1))==NULL) ||
-		((eb=(u_char*)malloc(newsize+1))==NULL)) err(1,NULL);
+	if(((db=(u_char*)malloc(newsize+1))== nullptr) ||
+		((eb=(u_char*)malloc(newsize+1))== nullptr)) err(1, nullptr);
 	dblen=0;
 	eblen=0;
 
@@ -721,7 +721,7 @@ int DIFF_main(int argc,char *argv[])
 		err(1, "fwrite(%s)", argv[3]);
 
 	/* Compute the differences, writing ctrl as we go */
-	if ((pfbz2 = BZ2_bzWriteOpen(&bz2err, pf, 9, 0, 0)) == NULL)
+	if ((pfbz2 = BZ2_bzWriteOpen(&bz2err, pf, 9, 0, 0)) == nullptr)
 		errx(1, "BZ2_bzWriteOpen, bz2err = %d", bz2err);
 	scan=0;len=0;
 	lastscan=0;lastpos=0;lastoffset=0;
@@ -811,7 +811,7 @@ int DIFF_main(int argc,char *argv[])
 			lastoffset=pos-scan;
 		};
 	};
-	BZ2_bzWriteClose(&bz2err, pfbz2, 0, NULL, NULL);
+	BZ2_bzWriteClose(&bz2err, pfbz2, 0, nullptr, nullptr);
 	if (bz2err != BZ_OK)
 		errx(1, "BZ2_bzWriteClose, bz2err = %d", bz2err);
 
@@ -821,14 +821,14 @@ int DIFF_main(int argc,char *argv[])
 	offtout(len-32, header + 8);
 
 	/* Write compressed diff data */
-	if ((pfbz2 = BZ2_bzWriteOpen(&bz2err, pf, 9, 0, 0)) == NULL)
+	if ((pfbz2 = BZ2_bzWriteOpen(&bz2err, pf, 9, 0, 0)) == nullptr)
 		errx(1, "BZ2_bzWriteOpen, bz2err = %d", bz2err);
 	BZ2_bzWrite(&bz2err, pfbz2, db, dblen);
 	bytesWritten+=dblen;
 //	printf("bz2err dblen %i %i\n", dblen, bytesWritten);
 	if (bz2err != BZ_OK)
 		errx(1, "BZ2_bzWrite, bz2err = %d", bz2err);
-	BZ2_bzWriteClose(&bz2err, pfbz2, 0, NULL, NULL);
+	BZ2_bzWriteClose(&bz2err, pfbz2, 0, nullptr, nullptr);
 	if (bz2err != BZ_OK)
 		errx(1, "BZ2_bzWriteClose, bz2err = %d", bz2err);
 
@@ -838,14 +838,14 @@ int DIFF_main(int argc,char *argv[])
 	offtout(newsize - len, header + 16);
 
 	/* Write compressed extra data */
-	if ((pfbz2 = BZ2_bzWriteOpen(&bz2err, pf, 9, 0, 0)) == NULL)
+	if ((pfbz2 = BZ2_bzWriteOpen(&bz2err, pf, 9, 0, 0)) == nullptr)
 		errx(1, "BZ2_bzWriteOpen, bz2err = %d", bz2err);
 	BZ2_bzWrite(&bz2err, pfbz2, eb, eblen);
 	if (bz2err != BZ_OK)
 		errx(1, "BZ2_bzWrite, bz2err = %d", bz2err);
 	bytesWritten+=eblen;
 	//printf("bz2err eblen %i %i\n", eblen, bytesWritten);
-	BZ2_bzWriteClose(&bz2err, pfbz2, 0, NULL, NULL);
+	BZ2_bzWriteClose(&bz2err, pfbz2, 0, nullptr, nullptr);
 	if (bz2err != BZ_OK)
 		errx(1, "BZ2_bzWriteClose, bz2err = %d", bz2err);
 

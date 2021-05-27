@@ -17,6 +17,7 @@ version 0.2.0 (xx-xx-xxxx xx:xx UTC)
 *** This release resolves 1 user reported issue (1 completely)
 General:
   * extended supported compilers to VS 2017 15.4.1 (#163)
+  * make use of C++11 nullptr-keyword (#281)
   * several smaller changes, fixes, and code cleanup (#130 - SLNET_50/SLNET_52, #136, #181 - SLNET_28/SLNET_30)
   * documentation updates (#130, #160, #189, #222, #257)
 Core:

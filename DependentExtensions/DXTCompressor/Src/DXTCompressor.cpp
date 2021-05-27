@@ -3,10 +3,15 @@
 // Please refer to http://developer.download.nvidia.com/SDK/10/opengl/samples.html#compress_YCoCgDXT for more information.
 /* ------------------------------------------------------------------------------------------------------------------------------------ */
 
-/*
- * This file was taken from RakNet 4.082 without any modifications.
- * Please see licenses/RakNet license.txt for the underlying license and related copyright.
- */
+ /*
+  * This file was taken from RakNet 4.082.
+  * Please see licenses/RakNet license.txt for the underlying license and related copyright.
+  *
+  * Modified work: Copyright (c) 2020, SLikeSoft UG (haftungsbeschränkt)
+  *
+  * This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
+  * license found in the license.txt file in the root directory of this source tree.
+  */
 
 /* ------------------------------------------------------------------------------------------------------------------------------------ */
 // Includes
@@ -624,7 +629,7 @@ bool DXTCompressor::CompressImageData( CompressionType compressionType, const vo
 
 	// Clean up
 // 	delete [] pFlippedData;
-// 	pFlippedData = NULL;
+// 	pFlippedData = nullptr;
 	glDeleteTextures( 1, &compressor.m_imageTexId );
 
 	// Done
@@ -776,7 +781,7 @@ void DXTCompressor::DisplayTexture( GLuint textureID, int texW, int texH )
 	BOOL	done=FALSE;
 	while(!done)
 	{
-		if (PeekMessage(&msg,NULL,0,0,PM_REMOVE))
+		if (PeekMessage(&msg, nullptr,0,0,PM_REMOVE))
 		{
 			if (msg.message==WM_QUIT)
 			{

@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2017, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2017-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -1393,6 +1393,6 @@ void Lobby2ClientGFx3Impl::OpenSite(const FxDelegateArgs& pparams)
 {
 	Lobby2ClientGFx3Impl* prt = (Lobby2ClientGFx3Impl*)pparams.GetHandler();
 	const char *siteType = pparams[0].GetString();
-	ShellExecute(NULL, "open", siteType,NULL, NULL, SW_SHOWNORMAL);
+	ShellExecute(nullptr, "open", siteType, nullptr, nullptr, SW_SHOWNORMAL);
 }
 

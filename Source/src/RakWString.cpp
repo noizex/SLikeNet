@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2016-2018, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2016-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -116,7 +116,7 @@ RakWString& RakWString::operator = ( const char * const str )
 	if (str[0]==0)
 		return *this;
 
-	mbstowcs_s(&c_strCharLength, NULL, 0, str, 0);
+	mbstowcs_s(&c_strCharLength, nullptr, 0, str, 0);
 	c_str = (wchar_t *) rakMalloc_Ex( (c_strCharLength + 1) * MAX_BYTES_PER_UNICODE_CHAR, _FILE_AND_LINE_);
 	if (!c_str)
 	{

@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2016-2018, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2016-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -54,7 +54,7 @@ void PacketLogger::FormatLine(char* into, const char* dir, const char* type, uns
 	unsigned int splitPacketId, unsigned int splitPacketIndex, unsigned int splitPacketCount, unsigned int orderingIndex)
 {
 	char numericID[16];
-	const char* idToPrint = NULL;
+	const char* idToPrint = nullptr;
 	if (printId)
 	{
 		if (splitPacketCount > 0 && splitPacketCount != (unsigned int)-1)
@@ -62,10 +62,10 @@ void PacketLogger::FormatLine(char* into, const char* dir, const char* type, uns
 		else
 			idToPrint = IDTOString(id);
 	}
-	// If printId is false, idToPrint will be NULL, as it will
+	// If printId is false, idToPrint will be nullptr, as it will
 	// in the case of an unrecognized id. Testing printId for false
 	// would just be redundant.
-	if (idToPrint == NULL)
+	if (idToPrint == nullptr)
 	{
 		sprintf_s(numericID, "%5u", id);
 		idToPrint = numericID;
@@ -79,7 +79,7 @@ char* into, size_t intoLength, const char* dir, const char* type, unsigned int r
 unsigned int splitPacketId, unsigned int splitPacketIndex, unsigned int splitPacketCount, unsigned int orderingIndex)
 {
 	char numericID[16];
-	const char* idToPrint = NULL;
+	const char* idToPrint = nullptr;
 	if(printId)
 	{
 		if (splitPacketCount>0 && splitPacketCount!=(unsigned int)-1)
@@ -87,10 +87,10 @@ unsigned int splitPacketId, unsigned int splitPacketIndex, unsigned int splitPac
 		else
 			idToPrint =	IDTOString(id);
 	}
-	// If printId is false, idToPrint will be NULL, as it will
+	// If printId is false, idToPrint will be nullptr, as it will
 	// in the case of an unrecognized id. Testing printId for false
 	// would just be redundant.
-	if(idToPrint == NULL)
+	if(idToPrint == nullptr)
 	{
 		sprintf_s(numericID, "%5u", id);
 		idToPrint = numericID;

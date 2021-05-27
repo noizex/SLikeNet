@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2017, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2017-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -56,7 +56,7 @@ void RakSleep(unsigned int ms)
 	struct timeval now;
 	int rt;
 
-	gettimeofday(&now,NULL);
+	gettimeofday(&now, nullptr);
 
 	long seconds = ms/1000;
 	long nanoseconds = (ms - seconds * 1000) * 1000000;

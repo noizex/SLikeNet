@@ -28,7 +28,7 @@
  * This file was taken from RakNet 4.082.
  * Please see licenses/RakNet license.txt for the underlying license and related copyright.
  *
- * Modified work: Copyright (c) 2017, SLikeSoft UG (haftungsbeschränkt)
+ * Modified work: Copyright (c) 2017-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  * This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  * license found in the license.txt file in the root directory of this source tree.
@@ -51,9 +51,9 @@
 //-----------------------------------------------------------------------------
 // Global variables
 //-----------------------------------------------------------------------------
-LPDIRECT3D9             g_pD3D = NULL; // Used to create the D3DDevice
-LPDIRECT3DDEVICE9       g_pd3dDevice = NULL; // Our rendering device
-LPDIRECT3DVERTEXBUFFER9 g_pVB = NULL; // Buffer to hold vertices
+LPDIRECT3D9             g_pD3D = nullptr; // Used to create the D3DDevice
+LPDIRECT3DDEVICE9       g_pd3dDevice = nullptr; // Our rendering device
+LPDIRECT3DVERTEXBUFFER9 g_pVB = nullptr; // Buffer to hold vertices
 
 // A structure for our custom vertex type
 struct CUSTOMVERTEX
@@ -75,7 +75,7 @@ struct CUSTOMVERTEX
 HRESULT InitD3D( HWND hWnd )
 {
     // Create the D3D object.
-    if( NULL == ( g_pD3D = Direct3DCreate9( D3D_SDK_VERSION ) ) )
+    if(nullptr == ( g_pD3D = Direct3DCreate9( D3D_SDK_VERSION ) ) )
         return E_FAIL;
 
     // Set up the structure used to create the D3DDevice
@@ -129,7 +129,7 @@ HRESULT InitGeometry()
     // Create the vertex buffer.
     if( FAILED( g_pd3dDevice->CreateVertexBuffer( 3 * sizeof( CUSTOMVERTEX ),
                                                   0, D3DFVF_CUSTOMVERTEX,
-                                                  D3DPOOL_DEFAULT, &g_pVB, NULL ) ) )
+                                                  D3DPOOL_DEFAULT, &g_pVB, nullptr) ) )
     {
         return E_FAIL;
     }
@@ -153,13 +153,13 @@ HRESULT InitGeometry()
 //-----------------------------------------------------------------------------
 VOID Cleanup()
 {
-    if( g_pVB != NULL )
+    if( g_pVB != nullptr)
         g_pVB->Release();
 
-    if( g_pd3dDevice != NULL )
+    if( g_pd3dDevice != nullptr)
         g_pd3dDevice->Release();
 
-    if( g_pD3D != NULL )
+    if( g_pD3D != nullptr)
         g_pD3D->Release();
 }
 
@@ -214,7 +214,7 @@ VOID SetupMatrices()
 VOID Render()
 {
     // Clear the backbuffer to a black color
-    g_pd3dDevice->Clear( 0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB( 0, 0, 0 ), 1.0f, 0 );
+    g_pd3dDevice->Clear( 0, nullptr, D3DCLEAR_TARGET, D3DCOLOR_XRGB( 0, 0, 0 ), 1.0f, 0 );
 
     // Begin the scene
     if( SUCCEEDED( g_pd3dDevice->BeginScene() ) )
@@ -232,7 +232,7 @@ VOID Render()
     }
 
     // Present the backbuffer contents to the display
-    g_pd3dDevice->Present( NULL, NULL, NULL, NULL );
+    g_pd3dDevice->Present(nullptr, nullptr, nullptr, nullptr);
 }
 
 
@@ -266,8 +266,8 @@ INT WINAPI wWinMain( HINSTANCE hInst, HINSTANCE, LPWSTR, INT )
     WNDCLASSEX wc =
     {
         sizeof( WNDCLASSEX ), CS_CLASSDC, MsgProc, 0L, 0L,
-        GetModuleHandle( NULL ), NULL, NULL, NULL, NULL,
-        _T("D3D Tutorial"), NULL
+        GetModuleHandle(nullptr), nullptr, nullptr, nullptr, nullptr,
+        _T("D3D Tutorial"), nullptr
     };
     RegisterClassEx( &wc );
 
@@ -283,7 +283,7 @@ INT WINAPI wWinMain( HINSTANCE hInst, HINSTANCE, LPWSTR, INT )
     // Create the application's window
     HWND hWnd = CreateWindow(_T("D3D Tutorial"), _T("D3D Tutorial 03: Matrices"),
                               WS_OVERLAPPEDWINDOW, 100, 100, 512, 512,
-                              NULL, NULL, hInst, NULL );
+                              nullptr, nullptr, hInst, nullptr);
 	
 	DWORD timeSinceLastLog, timeSinceLastTick, lastLogTime=0;
 	float lastFps = 0.f; // unnecessary assignment - added to workaround false-positive of C4701
@@ -307,7 +307,7 @@ INT WINAPI wWinMain( HINSTANCE hInst, HINSTANCE, LPWSTR, INT )
             ZeroMemory( &msg, sizeof( msg ) );
             while( msg.message != WM_QUIT )
             {
-                if( PeekMessage( &msg, NULL, 0U, 0U, PM_REMOVE ) )
+                if( PeekMessage( &msg, nullptr, 0U, 0U, PM_REMOVE ) )
                 {
                     TranslateMessage( &msg );
                     DispatchMessage( &msg );

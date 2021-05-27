@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2016-2017, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2016-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -83,12 +83,12 @@ int main(int argc, char **argv)
 
 			// Launch the child process.
 			if (!CreateProcessA(
-				NULL,
+				nullptr,
 				buff+15,
-				NULL, NULL,
+				nullptr, nullptr,
 				TRUE,
 				CREATE_NEW_CONSOLE,
-				NULL, NULL,
+				nullptr, nullptr,
 				&si,
 				&pi))
 				return 1;

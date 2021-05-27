@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2017, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2017-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -195,7 +195,7 @@ int SLNet::NatTypeRecvFrom(char *data, RakNetSocket2* socket, SystemAddress &sen
 	{
 		RNS2RecvStruct *recvFromStruct;
 		recvFromStruct=AllocRNS2RecvStruct(_FILE_AND_LINE_);
-		if (recvFromStruct != NULL)
+		if (recvFromStruct != nullptr)
 		{
 			recvFromStruct->socket=this;
 			socket->RecvFromBlocking(recvFromStruct);

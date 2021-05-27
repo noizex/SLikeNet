@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2017-2018, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2017-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -449,7 +449,7 @@ void RakVoice::Update(void)
 
 					// Run preprocessor if required
 					if (defaultDENOISEState||defaultVADState){
-						is_speech=speex_preprocess((SpeexPreprocessState*)channel->pre_state,(spx_int16_t*) inputBuffer, NULL );
+						is_speech=speex_preprocess((SpeexPreprocessState*)channel->pre_state,(spx_int16_t*) inputBuffer, nullptr);
 					}
 
 					if ((is_speech)||(!defaultVADState)){
@@ -720,22 +720,22 @@ void RakVoice::SetPreprocessorParameter(void* pre_state, int vartype, int val)
 void RakVoice::SetEncoderComplexity(int complexity)
 {
 	RakAssert((complexity>=0)&&(complexity<=10));
-	SetEncoderParameter(NULL, SPEEX_SET_COMPLEXITY, complexity);
+	SetEncoderParameter(nullptr, SPEEX_SET_COMPLEXITY, complexity);
 	defaultEncoderComplexity = complexity;
 }
 void RakVoice::SetVAD(bool enable)
 {
-	SetPreprocessorParameter(NULL, SPEEX_PREPROCESS_SET_VAD, (enable)? 1 : 2);
+	SetPreprocessorParameter(nullptr, SPEEX_PREPROCESS_SET_VAD, (enable)? 1 : 2);
 	defaultVADState = enable;
 }
 void RakVoice::SetNoiseFilter(bool enable)
 {
-	SetPreprocessorParameter(NULL, SPEEX_PREPROCESS_SET_DENOISE, (enable) ? 1 : 2);
+	SetPreprocessorParameter(nullptr, SPEEX_PREPROCESS_SET_DENOISE, (enable) ? 1 : 2);
 	defaultDENOISEState = enable;
 }
 void RakVoice::SetVBR(bool enable)
 {
-	SetEncoderParameter(NULL, SPEEX_SET_VBR, (enable) ? 1 : 0);
+	SetEncoderParameter(nullptr, SPEEX_SET_VBR, (enable) ? 1 : 0);
 	defaultVBRState = enable;
 }
 

@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2016-2017, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2016-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -253,7 +253,7 @@ void PlayerReplica::PostDeserializeConstruction(SLNet::BitStream *constructionBi
 	model->setVisible(true);
 	model->setAnimationEndCallback(this);
 	wchar_t playerNameWChar[1024];
-	mbstowcs_s(NULL, playerNameWChar, playerName.C_String(), 1023);
+	mbstowcs_s(nullptr, playerNameWChar, playerName.C_String(), 1023);
 	scene::IBillboardSceneNode *bb = sm->addBillboardTextSceneNode(0, playerNameWChar, model);
 	bb->setSize(core::dimension2df(40,20));
 	bb->setPosition(core::vector3df(0,model->getBoundingBox().MaxEdge.Y+bb->getBoundingBox().MaxEdge.Y-bb->getBoundingBox().MinEdge.Y+5.0f,0));

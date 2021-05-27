@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2017, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2017-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -55,11 +55,11 @@ int RakThread::Create( void* start_address( void* ), void *arglist, int priority
 
 
 #if   defined(WINDOWS_PHONE_8) || defined(WINDOWS_STORE_RT)
-	threadHandle = CreateThread(NULL,0,start_address,arglist,CREATE_SUSPENDED, 0);
+	threadHandle = CreateThread(nullptr,0,start_address,arglist,CREATE_SUSPENDED, 0);
 #elif defined _WIN32_WCE
-	threadHandle = CreateThread(NULL,MAX_ALLOCA_STACK_ALLOCATION*2,start_address,arglist,0,(DWORD*)&threadID);
+	threadHandle = CreateThread(nullptr,MAX_ALLOCA_STACK_ALLOCATION*2,start_address,arglist,0,(DWORD*)&threadID);
 #else
-	threadHandle = (HANDLE) _beginthreadex( NULL, MAX_ALLOCA_STACK_ALLOCATION*2, start_address, arglist, 0, &threadID );
+	threadHandle = (HANDLE) _beginthreadex(nullptr, MAX_ALLOCA_STACK_ALLOCATION*2, start_address, arglist, 0, &threadID );
 #endif
 	
 	SetThreadPriority(threadHandle, priority);

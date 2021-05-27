@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2016-2019, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2016-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -216,7 +216,7 @@ PluginReceiveResult HTTPConnection2::OnReceive(Packet *packet)
 				size_t result;
 
 				pFile = fopen ( "string_received.txt" , "rb" );
-				if (pFile==NULL) {fputs ("File error",stderr); exit (1);}
+				if (pFile==nullptr) {fputs ("File error",stderr); exit (1);}
 
 				// obtain file size:
 				fseek (pFile , 0 , SEEK_END);
@@ -225,7 +225,7 @@ PluginReceiveResult HTTPConnection2::OnReceive(Packet *packet)
 
 				// allocate memory to contain the whole file:
 				buffer = (char*) malloc (sizeof(char)*lSize);
-				if (buffer == NULL) {fputs ("Memory error",stderr); exit (2);}
+				if (buffer == nullptr) {fputs ("Memory error",stderr); exit (2);}
 
 				// copy the file into the buffer:
 				result = fread (buffer,1,lSize,pFile);

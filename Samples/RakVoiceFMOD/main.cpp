@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2016-2017, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2016-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -56,8 +56,8 @@
 // define sample type. Only short(16 bits sound) is supported at the moment.
 typedef short SAMPLE;
 
-SLNet::RakPeerInterface *rakPeer=NULL;
-FMOD::System *fmodSystem=NULL;
+SLNet::RakPeerInterface *rakPeer= nullptr;
+FMOD::System *fmodSystem= nullptr;
 SLNet::RakVoice rakVoice;
 bool mute;
 

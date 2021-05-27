@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2017, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2017-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -168,7 +168,7 @@ public:
 	bool IsInitialized(void) const;
 
 	/// Returns the RakPeerInterface that the object is attached to.
-	/// \return the respective RakPeerInterface, or NULL if not attached.
+	/// \return the respective RakPeerInterface, or nullptr if not attached.
 	RakPeerInterface* GetRakPeerInterface(void) const;
 
 	/// How many bytes are on the write buffer, waiting to be passed to a call to RakPeer::Send (internally)

@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2017-2019, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2017-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -291,8 +291,8 @@ RNS2BindResult RNS2_Berkley::BindShared( RNS2_BerkleyBindParameters *bindParamet
 
 	/*
 #if defined(__APPLE__)
-	const CFSocketContext   context = { 0, this, NULL, NULL, NULL };
-	_cfSocket = CFSocketCreateWithNative(NULL, rns2Socket, kCFSocketReadCallBack, SocketReadCallback, &context);
+	const CFSocketContext   context = { 0, this, nullptr, nullptr, nullptr };
+	_cfSocket = CFSocketCreateWithNative(nullptr, rns2Socket, kCFSocketReadCallBack, SocketReadCallback, &context);
 #endif
 	*/
 
@@ -314,7 +314,7 @@ unsigned RNS2_Berkley::RecvFromLoopInt(void)
 	{
 		RNS2RecvStruct *recvFromStruct;
 		recvFromStruct=binding.eventHandler->AllocRNS2RecvStruct(_FILE_AND_LINE_);
-		if (recvFromStruct != NULL)
+		if (recvFromStruct != nullptr)
 		{
 			recvFromStruct->socket=this;
 			RecvFromBlocking(recvFromStruct);

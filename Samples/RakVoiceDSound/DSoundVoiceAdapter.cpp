@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2016-2017, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2016-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -51,7 +51,7 @@ bool DSoundVoiceAdapter::SetupAdapter(RakVoice *rakVoice, HWND hwnd, DWORD dwCoo
 
 	HRESULT hr;
 
-	if (FAILED(hr = DirectSoundCreate8(NULL, &ds, NULL)))
+	if (FAILED(hr = DirectSoundCreate8(nullptr, &ds, nullptr)))
 	{
 		DXTRACE_ERR_MSGBOX(_T("DirectSoundCreate8, when initiliazing DirectSound"), hr);
 		return false;
@@ -103,7 +103,7 @@ bool DSoundVoiceAdapter::SetupAdapter(RakVoice *rakVoice)
 {
 	RakAssert(rakVoice);
 	// Make sure rakVoice was initialized
-	RakAssert((rakVoice->IsInitialized())&&(rakVoice->GetRakPeerInterface()!=NULL));
+	RakAssert((rakVoice->IsInitialized())&&(rakVoice->GetRakPeerInterface()!= nullptr));
 
 	m_rakVoice = rakVoice;
 
@@ -124,7 +124,7 @@ bool DSoundVoiceAdapter::SetupIncomingBuffer()
 
 	WAVEFORMATEX wfx; 
 	DSBUFFERDESC dsbdesc; 
-	LPDIRECTSOUNDBUFFER pDsb = NULL;
+	LPDIRECTSOUNDBUFFER pDsb = nullptr;
 	HRESULT hr; 
 	// Set up WAV format structure. 
 	memset(&wfx, 0, sizeof(WAVEFORMATEX)); 
@@ -142,7 +142,7 @@ bool DSoundVoiceAdapter::SetupIncomingBuffer()
 	dsbdesc.dwBufferBytes = m_rakVoice->GetBufferSizeBytes()*FRAMES_IN_SOUND;
 	dsbdesc.lpwfxFormat = &wfx; 
 	// Create buffer. 
-	if (FAILED(hr = ds->CreateSoundBuffer(&dsbdesc, &pDsb, NULL)))
+	if (FAILED(hr = ds->CreateSoundBuffer(&dsbdesc, &pDsb, nullptr)))
 	{
 		DXTRACE_ERR_MSGBOX(_T("IDirectSound8::CreateSoundBuffer, when creating buffer for incoming sound )"), hr);
 		return false;
@@ -161,9 +161,9 @@ bool DSoundVoiceAdapter::SetupIncomingBuffer()
 	{
 		incomingBufferNotifications[i].dwOffset = i*m_rakVoice->GetBufferSizeBytes();
 #if defined(WINDOWS_PHONE_8)
-		if ((incomingBufferNotifications[i].hEventNotify = CreateEventEx(0, 0, CREATE_EVENT_MANUAL_RESET, 0))==NULL)
+		if ((incomingBufferNotifications[i].hEventNotify = CreateEventEx(0, 0, CREATE_EVENT_MANUAL_RESET, 0))== nullptr)
 #else
-		if ((incomingBufferNotifications[i].hEventNotify = CreateEvent(NULL, TRUE, FALSE, NULL))==NULL)
+		if ((incomingBufferNotifications[i].hEventNotify = CreateEvent(nullptr, TRUE, FALSE, nullptr))== nullptr)
 #endif
 		{
 			DXTRACE_ERR_MSGBOX(_T("CreateEvent"), GetLastError());
@@ -202,7 +202,7 @@ bool DSoundVoiceAdapter::SetupOutgoingBuffer()
 	// Create the buffer for outgoing sound
 	//
 	//
-	if (FAILED(hr=DirectSoundCaptureCreate8(NULL, &dsC, NULL)))
+	if (FAILED(hr=DirectSoundCaptureCreate8(nullptr, &dsC, nullptr)))
 	{
 		DXTRACE_ERR_MSGBOX(_T("DirectSoundCaptureCreate8"), hr);
 		return false;
@@ -226,10 +226,10 @@ bool DSoundVoiceAdapter::SetupOutgoingBuffer()
 	dscbd.dwReserved = 0;
 	dscbd.lpwfxFormat = &wfx;
 	dscbd.dwFXCount = 0;
-	dscbd.lpDSCFXDesc = NULL;
+	dscbd.lpDSCFXDesc = nullptr;
 	// Create capture buffer.
-	LPDIRECTSOUNDCAPTUREBUFFER pDscb = NULL;
-	if (FAILED(hr = dsC->CreateCaptureBuffer(&dscbd, &pDscb, NULL)))
+	LPDIRECTSOUNDCAPTUREBUFFER pDscb = nullptr;
+	if (FAILED(hr = dsC->CreateCaptureBuffer(&dscbd, &pDscb, nullptr)))
 	{
 		DXTRACE_ERR_MSGBOX(_T("IDirectSoundCapture8::CreateCaptureBuffer, when creating buffer for outgoing sound )"), hr);
 		return false;
@@ -247,7 +247,7 @@ bool DSoundVoiceAdapter::SetupOutgoingBuffer()
 	for (int i=0; i<FRAMES_IN_SOUND; i++)
 	{
 		outgoingBufferNotifications[i].dwOffset = i*m_rakVoice->GetBufferSizeBytes();
-		if ((outgoingBufferNotifications[i].hEventNotify = CreateEventEx(0, 0, CREATE_EVENT_MANUAL_RESET, 0))==NULL)
+		if ((outgoingBufferNotifications[i].hEventNotify = CreateEventEx(0, 0, CREATE_EVENT_MANUAL_RESET, 0))== nullptr)
 		{
 			DXTRACE_ERR_MSGBOX(_T("CreateEvent"), GetLastError());
 			return false;
@@ -343,13 +343,13 @@ void DSoundVoiceAdapter::Update()
 		{
 			// The lock offset is the buffer right before the one the event refers to
 			DWORD dwOffset = (i==0) ? incomingBufferNotifications[FRAMES_IN_SOUND-1].dwOffset : incomingBufferNotifications[i-1].dwOffset;
-			hr = dsbIncoming->Lock(dwOffset, m_rakVoice->GetBufferSizeBytes(), &audioPtr, &audioPtrbytes, NULL, NULL, 0);
+			hr = dsbIncoming->Lock(dwOffset, m_rakVoice->GetBufferSizeBytes(), &audioPtr, &audioPtrbytes, nullptr, nullptr, 0);
 			// #med - should change GetBufferSizeBytes()-interface to unsigned int return
 			RakAssert(audioPtrbytes==static_cast<unsigned int>(m_rakVoice->GetBufferSizeBytes()));
 			if (SUCCEEDED(hr))
 			{
 				m_rakVoice->ReceiveFrame(audioPtr);
-				dsbIncoming->Unlock(audioPtr, audioPtrbytes, NULL, 0);
+				dsbIncoming->Unlock(audioPtr, audioPtrbytes, nullptr, 0);
 			}
 			ResetEvent(incomingBufferNotifications[i].hEventNotify);
 		}
@@ -365,13 +365,13 @@ void DSoundVoiceAdapter::Update()
 			{		
 				// The lock offset is the buffer right before the one the event refers to
 				DWORD dwOffset = (i==0) ? outgoingBufferNotifications[FRAMES_IN_SOUND-1].dwOffset : outgoingBufferNotifications[i-1].dwOffset;
-				hr = dsbOutgoing->Lock(dwOffset, m_rakVoice->GetBufferSizeBytes(), &audioPtr, &audioPtrbytes, NULL, NULL, 0);
+				hr = dsbOutgoing->Lock(dwOffset, m_rakVoice->GetBufferSizeBytes(), &audioPtr, &audioPtrbytes, nullptr, nullptr, 0);
 				// #med - should change GetBufferSizeBytes()-interface to unsigned int return
 				RakAssert(audioPtrbytes == static_cast<unsigned int>(m_rakVoice->GetBufferSizeBytes()));
 				if (SUCCEEDED(hr))
 				{
 					BroadcastFrame(audioPtr);
-					dsbOutgoing->Unlock(audioPtr, audioPtrbytes, NULL, 0);
+					dsbOutgoing->Unlock(audioPtr, audioPtrbytes, nullptr, 0);
 				}
 			}
 			ResetEvent(outgoingBufferNotifications[i].hEventNotify);

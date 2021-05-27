@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2017, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2017-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -118,17 +118,17 @@ void SimpleMutex::Lock(void)
 	FORMAT_MESSAGE_ALLOCATE_BUFFER |
 	FORMAT_MESSAGE_FROM_SYSTEM |
 	FORMAT_MESSAGE_IGNORE_INSERTS,
-	NULL,
+	nullptr,
 	GetLastError(),
 	MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
 	(LPTSTR) &messageBuffer,
 	0,
-	NULL
+	nullptr
 	);
 	// Process any inserts in messageBuffer.
 	// ...
 	// Display the string.
-	//MessageBox( NULL, (LPCTSTR)messageBuffer, "Error", MB_OK | MB_ICONINFORMATION );
+	//MessageBox( nullptr, (LPCTSTR)messageBuffer, "Error", MB_OK | MB_ICONINFORMATION );
 	RAKNET_DEBUG_PRINTF("SimpleMutex error: %s", messageBuffer);
 	// Free the buffer.
 	LocalFree( messageBuffer );
@@ -176,7 +176,7 @@ void SimpleMutex::Init(void)
 #if defined(WINDOWS_PHONE_8) || defined(WINDOWS_STORE_RT)
 	InitializeCriticalSectionEx(&criticalSection,0,CRITICAL_SECTION_NO_DEBUG_INFO);
 #elif defined(_WIN32)
-	//	hMutex = CreateMutex(NULL, FALSE, 0);
+	//	hMutex = CreateMutex(nullptr, FALSE, 0);
 	//	RakAssert(hMutex);
 	InitializeCriticalSection(&criticalSection);
 

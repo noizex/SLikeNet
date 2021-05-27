@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2016-2018, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2016-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -145,7 +145,7 @@ void ReplicaManager3::AutoCreateConnectionList(
 {
 	for (unsigned int index=0; index < participantListIn.Size(); index++)
 	{
-		if (GetConnectionByGUID(participantListIn[index], worldId)==NULL)
+		if (GetConnectionByGUID(participantListIn[index], worldId)== nullptr)
 		{
 			Connection_RM3 *connection = AllocConnection(rakPeerInterface->GetSystemAddressFromGuid(participantListIn[index]), participantListIn[index]);
 			if (connection)
