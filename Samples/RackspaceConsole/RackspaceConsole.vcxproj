@@ -114,7 +114,7 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>ws2_32.lib;./../../DependentExtensions/openssl/lib/x86/debug/libeay32.lib;./../../DependentExtensions/openssl/lib/x86/debug/ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;libeay32.lib;ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(OutDir)RackspaceConsole.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
@@ -122,6 +122,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
+      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib/x86/debug</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy .\..\..\DependentExtensions\openssl\bin\x86\debug\*.dll .\</Command>
@@ -142,7 +143,7 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>ws2_32.lib;./../../DependentExtensions/openssl/lib/x86/debug/libeay32.lib;./../../DependentExtensions/openssl/lib/x86/debug/ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;libeay32.lib;ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(OutDir)RackspaceConsole.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
@@ -150,6 +151,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
+      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib/x86/debug</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy .\..\..\DependentExtensions\openssl\bin\x86\debug\*.dll .\</Command>
@@ -168,7 +170,7 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>ws2_32.lib;./../../DependentExtensions/openssl/lib/x86/release/libeay32.lib;./../../DependentExtensions/openssl/lib/x86/release/ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;libeay32.lib;ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -177,6 +179,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
+      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib/x86/release</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy .\..\..\DependentExtensions\openssl\bin\x86\release\*.dll .\</Command>
@@ -195,7 +198,7 @@
       <BufferSecurityCheck>false</BufferSecurityCheck>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>ws2_32.lib;./../../DependentExtensions/openssl/lib/x86/release/libeay32.lib;./../../DependentExtensions/openssl/lib/x86/release/ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;libeay32.lib;ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -204,6 +207,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
+      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib/x86/release</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy .\..\..\DependentExtensions\openssl\bin\x86\release\*.dll .\</Command>
@@ -222,7 +226,7 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>ws2_32.lib;./../../DependentExtensions/openssl/lib/x86/release/libeay32.lib;./../../DependentExtensions/openssl/lib/x86/release/ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;libeay32.lib;ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -231,6 +235,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
+      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib/x86/release</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy .\..\..\DependentExtensions\openssl\bin\x86\release\*.dll .\</Command>
@@ -249,7 +254,7 @@
       <BufferSecurityCheck>false</BufferSecurityCheck>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>ws2_32.lib;./../../DependentExtensions/openssl/lib/x86/release/libeay32.lib;./../../DependentExtensions/openssl/lib/x86/release/ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;libeay32.lib;ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -258,6 +263,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
+      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib/x86/release</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy .\..\..\DependentExtensions\openssl\bin\x86\release\*.dll .\</Command>
