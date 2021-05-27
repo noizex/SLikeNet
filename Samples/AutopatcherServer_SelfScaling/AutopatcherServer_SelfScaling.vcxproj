@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug - Unicode|Win32">
@@ -102,7 +102,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>./;./../../Source/include;./../../DependentExtensions;./../../DependentExtensions/Autopatcher;./../../DependentExtensions/bzip2-1.0.6;./../../DependentExtensions/Autopatcher/AutopatcherPostgreRepository;./../../DependentExtensions/PostgreSQLInterface;./../../Samples/CloudServer;./../../DependentExtensions/openssl/include/x86/debug;C:\Program Files (x86)\PostgreSQL\9.2\include;$(SolutionDir)DependentExtensions\jansson-2.4\src;./../../DependentExtensions/Rackspace;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;./../../Source/include;./../../DependentExtensions;./../../DependentExtensions/Autopatcher;./../../DependentExtensions/bzip2-1.0.6;./../../DependentExtensions/Autopatcher/AutopatcherPostgreRepository;./../../DependentExtensions/PostgreSQLInterface;./../../Samples/CloudServer;./../../DependentExtensions/openssl/include/x86;C:\Program Files (x86)\PostgreSQL\9.2\include;$(SolutionDir)DependentExtensions\jansson-2.4\src;./../../DependentExtensions/Rackspace;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;WIN32;_DEBUG;_CONSOLE;OPEN_SSL_CLIENT_SUPPORT=1;STATICLIB;_RAKNET_SUPPORT_Rackspace2=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -134,7 +134,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug - Unicode|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>./;./../../Source/include;./../../DependentExtensions;./../../DependentExtensions/Autopatcher;./../../DependentExtensions/bzip2-1.0.6;./../../DependentExtensions/Autopatcher/AutopatcherPostgreRepository;./../../DependentExtensions/PostgreSQLInterface;./../../Samples/CloudServer;./../../DependentExtensions/openssl/include/x86/debug;C:\Program Files (x86)\PostgreSQL\9.2\include;$(SolutionDir)DependentExtensions\jansson-2.4\src;./../../DependentExtensions/Rackspace;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;./../../Source/include;./../../DependentExtensions;./../../DependentExtensions/Autopatcher;./../../DependentExtensions/bzip2-1.0.6;./../../DependentExtensions/Autopatcher/AutopatcherPostgreRepository;./../../DependentExtensions/PostgreSQLInterface;./../../Samples/CloudServer;./../../DependentExtensions/openssl/include/x86;C:\Program Files (x86)\PostgreSQL\9.2\include;$(SolutionDir)DependentExtensions\jansson-2.4\src;./../../DependentExtensions/Rackspace;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;WIN32;_DEBUG;_CONSOLE;OPEN_SSL_CLIENT_SUPPORT=1;STATICLIB;_RAKNET_SUPPORT_Rackspace2=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -165,7 +165,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>./;./../../Source/include;./../../DependentExtensions;./../../DependentExtensions/Autopatcher;./../../DependentExtensions/bzip2-1.0.6;./../../DependentExtensions/Autopatcher/AutopatcherPostgreRepository;./../../DependentExtensions/PostgreSQLInterface;./../../Samples/CloudServer;./../../DependentExtensions/openssl/include/x86/release;C:\Program Files (x86)\PostgreSQL\9.2\include;$(SolutionDir)DependentExtensions\jansson-2.4\src;./../../DependentExtensions/Rackspace;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;./../../Source/include;./../../DependentExtensions;./../../DependentExtensions/Autopatcher;./../../DependentExtensions/bzip2-1.0.6;./../../DependentExtensions/Autopatcher/AutopatcherPostgreRepository;./../../DependentExtensions/PostgreSQLInterface;./../../Samples/CloudServer;./../../DependentExtensions/openssl/include/x86;C:\Program Files (x86)\PostgreSQL\9.2\include;$(SolutionDir)DependentExtensions\jansson-2.4\src;./../../DependentExtensions/Rackspace;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;WIN32;NDEBUG;_CONSOLE;OPEN_SSL_CLIENT_SUPPORT=1;STATICLIB;_RAKNET_SUPPORT_Rackspace2=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>
@@ -194,7 +194,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>./;./../../Source/include;./../../DependentExtensions;./../../DependentExtensions/Autopatcher;./../../DependentExtensions/bzip2-1.0.6;./../../DependentExtensions/Autopatcher/AutopatcherPostgreRepository;./../../DependentExtensions/PostgreSQLInterface;./../../Samples/CloudServer;./../../DependentExtensions/openssl/include/x86/release;C:\Program Files (x86)\PostgreSQL\9.2\include;$(SolutionDir)DependentExtensions\jansson-2.4\src;./../../DependentExtensions/Rackspace;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;./../../Source/include;./../../DependentExtensions;./../../DependentExtensions/Autopatcher;./../../DependentExtensions/bzip2-1.0.6;./../../DependentExtensions/Autopatcher/AutopatcherPostgreRepository;./../../DependentExtensions/PostgreSQLInterface;./../../Samples/CloudServer;./../../DependentExtensions/openssl/include/x86;C:\Program Files (x86)\PostgreSQL\9.2\include;$(SolutionDir)DependentExtensions\jansson-2.4\src;./../../DependentExtensions/Rackspace;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;WIN32;_RETAIL;NDEBUG;_CONSOLE;OPEN_SSL_CLIENT_SUPPORT=1;STATICLIB;_RAKNET_SUPPORT_Rackspace2=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>
@@ -223,7 +223,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release - Unicode|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>./;./../../Source/include;./../../DependentExtensions;./../../DependentExtensions/Autopatcher;./../../DependentExtensions/bzip2-1.0.6;./../../DependentExtensions/Autopatcher/AutopatcherPostgreRepository;./../../DependentExtensions/PostgreSQLInterface;./../../Samples/CloudServer;./../../DependentExtensions/openssl/include/x86/release;C:\Program Files (x86)\PostgreSQL\9.2\include;$(SolutionDir)DependentExtensions\jansson-2.4\src;./../../DependentExtensions/Rackspace;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;./../../Source/include;./../../DependentExtensions;./../../DependentExtensions/Autopatcher;./../../DependentExtensions/bzip2-1.0.6;./../../DependentExtensions/Autopatcher/AutopatcherPostgreRepository;./../../DependentExtensions/PostgreSQLInterface;./../../Samples/CloudServer;./../../DependentExtensions/openssl/include/x86;C:\Program Files (x86)\PostgreSQL\9.2\include;$(SolutionDir)DependentExtensions\jansson-2.4\src;./../../DependentExtensions/Rackspace;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;WIN32;NDEBUG;_CONSOLE;OPEN_SSL_CLIENT_SUPPORT=1;STATICLIB;_RAKNET_SUPPORT_Rackspace2=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>
@@ -252,7 +252,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Retail - Unicode|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>./;./../../Source/include;./../../DependentExtensions;./../../DependentExtensions/Autopatcher;./../../DependentExtensions/bzip2-1.0.6;./../../DependentExtensions/Autopatcher/AutopatcherPostgreRepository;./../../DependentExtensions/PostgreSQLInterface;./../../Samples/CloudServer;./../../DependentExtensions/openssl/include/x86/release;C:\Program Files (x86)\PostgreSQL\9.2\include;$(SolutionDir)DependentExtensions\jansson-2.4\src;./../../DependentExtensions/Rackspace;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;./../../Source/include;./../../DependentExtensions;./../../DependentExtensions/Autopatcher;./../../DependentExtensions/bzip2-1.0.6;./../../DependentExtensions/Autopatcher/AutopatcherPostgreRepository;./../../DependentExtensions/PostgreSQLInterface;./../../Samples/CloudServer;./../../DependentExtensions/openssl/include/x86;C:\Program Files (x86)\PostgreSQL\9.2\include;$(SolutionDir)DependentExtensions\jansson-2.4\src;./../../DependentExtensions/Rackspace;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;WIN32;_RETAIL;NDEBUG;_CONSOLE;OPEN_SSL_CLIENT_SUPPORT=1;STATICLIB;_RAKNET_SUPPORT_Rackspace2=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>

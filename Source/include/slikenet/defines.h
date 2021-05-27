@@ -81,7 +81,7 @@
 /// If defined, OpenSSL is enabled for the class TCPInterface
 /// This is necessary to use the SendEmail class with Google POP servers
 /// Note that OpenSSL carries its own license restrictions that you should be aware of. If you don't agree, don't enable this define
-/// This also requires that you enable header search paths to DependentExtensions/openssl/include/[platform]/[configuration]
+/// This also requires that you enable header search paths to DependentExtensions/openssl/include/[platform]
 #ifndef OPEN_SSL_CLIENT_SUPPORT
 #define OPEN_SSL_CLIENT_SUPPORT 0
 #endif

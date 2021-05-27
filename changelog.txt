@@ -70,6 +70,7 @@ Building:
   OpenSSL:
     + add debug and 64-bit flavors for OpenSSL (#254)
     * added support for version 1.0.0e-1.0.0t (#3)
+    * changed directory structure of bundled openssl files (#253)
     * several smaller changes (#253)
   Swig:
     + added support to build C# bindings in RakNet compatibility mode (#158)

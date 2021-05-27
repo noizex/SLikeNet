@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug - Unicode|Win32">
@@ -102,7 +102,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>./../../DependentExtensions/openssl/include;./../../Source/include;./../../DependentExtensions/Rackspace;./../../DependentExtensions/XML;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./../../DependentExtensions/openssl/include/x86;./../../Source/include;./../../DependentExtensions/Rackspace;./../../DependentExtensions/XML;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -114,7 +114,7 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>ws2_32.lib;./../../DependentExtensions/openssl/lib/libeay32.lib;./../../DependentExtensions/openssl/lib/ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;./../../DependentExtensions/openssl/lib/x86/debug/libeay32.lib;./../../DependentExtensions/openssl/lib/x86/debug/ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(OutDir)RackspaceConsole.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
@@ -124,13 +124,13 @@
       <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
     </Link>
     <PostBuildEvent>
-      <Command>copy .\..\..\DependentExtensions\openssl\bin\*.dll .\</Command>
+      <Command>copy .\..\..\DependentExtensions\openssl\bin\x86\debug\*.dll .\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug - Unicode|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>./../../DependentExtensions/openssl/include;./../../Source/include;./../../DependentExtensions/Rackspace;./../../DependentExtensions/XML;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./../../DependentExtensions/openssl/include/x86;./../../Source/include;./../../DependentExtensions/Rackspace;./../../DependentExtensions/XML;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -142,7 +142,7 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>ws2_32.lib;./../../DependentExtensions/openssl/lib/libeay32.lib;./../../DependentExtensions/openssl/lib/ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;./../../DependentExtensions/openssl/lib/x86/debug/libeay32.lib;./../../DependentExtensions/openssl/lib/x86/debug/ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(OutDir)RackspaceConsole.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
@@ -152,12 +152,12 @@
       <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
     </Link>
     <PostBuildEvent>
-      <Command>copy .\..\..\DependentExtensions\openssl\bin\*.dll .\</Command>
+      <Command>copy .\..\..\DependentExtensions\openssl\bin\x86\debug\*.dll .\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>./../../DependentExtensions/openssl/include;./../../Source/include;./../../DependentExtensions/Rackspace;./../../DependentExtensions/XML;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./../../DependentExtensions/openssl/include/x86;./../../Source/include;./../../DependentExtensions/Rackspace;./../../DependentExtensions/XML;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>
@@ -168,7 +168,7 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>ws2_32.lib;./../../DependentExtensions/openssl/lib/libeay32.lib;./../../DependentExtensions/openssl/lib/ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;./../../DependentExtensions/openssl/lib/x86/release/libeay32.lib;./../../DependentExtensions/openssl/lib/x86/release/ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -179,12 +179,12 @@
       <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
     </Link>
     <PostBuildEvent>
-      <Command>copy .\..\..\DependentExtensions\openssl\bin\*.dll .\</Command>
+      <Command>copy .\..\..\DependentExtensions\openssl\bin\x86\release\*.dll .\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>./../../DependentExtensions/openssl/include;./../../Source/include;./../../DependentExtensions/Rackspace;./../../DependentExtensions/XML;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./../../DependentExtensions/openssl/include/x86;./../../Source/include;./../../DependentExtensions/Rackspace;./../../DependentExtensions/XML;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;WIN32;_RETAIL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>
@@ -195,7 +195,7 @@
       <BufferSecurityCheck>false</BufferSecurityCheck>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>ws2_32.lib;./../../DependentExtensions/openssl/lib/libeay32.lib;./../../DependentExtensions/openssl/lib/ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;./../../DependentExtensions/openssl/lib/x86/release/libeay32.lib;./../../DependentExtensions/openssl/lib/x86/release/ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -206,12 +206,12 @@
       <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
     </Link>
     <PostBuildEvent>
-      <Command>copy .\..\..\DependentExtensions\openssl\bin\*.dll .\</Command>
+      <Command>copy .\..\..\DependentExtensions\openssl\bin\x86\release\*.dll .\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release - Unicode|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>./../../DependentExtensions/openssl/include;./../../Source/include;./../../DependentExtensions/Rackspace;./../../DependentExtensions/XML;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./../../DependentExtensions/openssl/include/x86;./../../Source/include;./../../DependentExtensions/Rackspace;./../../DependentExtensions/XML;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>
@@ -222,7 +222,7 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>ws2_32.lib;./../../DependentExtensions/openssl/lib/libeay32.lib;./../../DependentExtensions/openssl/lib/ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;./../../DependentExtensions/openssl/lib/x86/release/libeay32.lib;./../../DependentExtensions/openssl/lib/x86/release/ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -233,12 +233,12 @@
       <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
     </Link>
     <PostBuildEvent>
-      <Command>copy .\..\..\DependentExtensions\openssl\bin\*.dll .\</Command>
+      <Command>copy .\..\..\DependentExtensions\openssl\bin\x86\release\*.dll .\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Retail - Unicode|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>./../../DependentExtensions/openssl/include;./../../Source/include;./../../DependentExtensions/Rackspace;./../../DependentExtensions/XML;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./../../DependentExtensions/openssl/include/x86;./../../Source/include;./../../DependentExtensions/Rackspace;./../../DependentExtensions/XML;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;WIN32;_RETAIL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>
@@ -249,7 +249,7 @@
       <BufferSecurityCheck>false</BufferSecurityCheck>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>ws2_32.lib;./../../DependentExtensions/openssl/lib/libeay32.lib;./../../DependentExtensions/openssl/lib/ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;./../../DependentExtensions/openssl/lib/x86/release/libeay32.lib;./../../DependentExtensions/openssl/lib/x86/release/ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -260,7 +260,7 @@
       <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
     </Link>
     <PostBuildEvent>
-      <Command>copy .\..\..\DependentExtensions\openssl\bin\*.dll .\</Command>
+      <Command>copy .\..\..\DependentExtensions\openssl\bin\x86\release\*.dll .\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
