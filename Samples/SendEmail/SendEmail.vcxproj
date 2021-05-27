@@ -121,7 +121,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
-      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib/x86/debug</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy .\..\..\DependentExtensions\openssl\bin\x86\debug\*.dll .\</Command>
@@ -150,7 +150,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
-      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib/x86/debug</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy .\..\..\DependentExtensions\openssl\bin\x86\debug\*.dll .\</Command>
@@ -178,7 +178,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
-      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib/x86/release</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy .\..\..\DependentExtensions\openssl\bin\x86\release\*.dll .\</Command>
@@ -206,7 +206,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
-      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib/x86/release</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy .\..\..\DependentExtensions\openssl\bin\x86\release\*.dll .\</Command>
@@ -234,7 +234,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
-      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib/x86/release</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy .\..\..\DependentExtensions\openssl\bin\x86\release\*.dll .\</Command>
@@ -262,7 +262,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
-      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib/x86/release</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy .\..\..\DependentExtensions\openssl\bin\x86\release\*.dll .\</Command>

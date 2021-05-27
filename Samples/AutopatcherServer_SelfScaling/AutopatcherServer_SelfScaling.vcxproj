@@ -125,7 +125,7 @@
       </DataExecutionPrevention>
       <TargetMachine>MachineX86</TargetMachine>
       <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
-      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib/x86/debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy "C:\Program Files (x86)\PostgreSQL\9.2\bin\*.dll" "$(OutDir)"</Command>
@@ -157,7 +157,7 @@
       </DataExecutionPrevention>
       <TargetMachine>MachineX86</TargetMachine>
       <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
-      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib/x86/debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy "C:\Program Files (x86)\PostgreSQL\9.2\bin\*.dll" "$(OutDir)"</Command>
@@ -186,7 +186,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
-      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib/x86/release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy "C:\Program Files (x86)\PostgreSQL\9.2\bin\*.dll" "$(OutDir)"</Command>
@@ -215,7 +215,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
-      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib/x86/release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy "C:\Program Files (x86)\PostgreSQL\9.2\bin\*.dll" "$(OutDir)"</Command>
@@ -244,7 +244,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
-      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib/x86/release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy "C:\Program Files (x86)\PostgreSQL\9.2\bin\*.dll" "$(OutDir)"</Command>
@@ -273,7 +273,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
-      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../DependentExtensions/openssl/lib/x86/release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy "C:\Program Files (x86)\PostgreSQL\9.2\bin\*.dll" "$(OutDir)"</Command>
