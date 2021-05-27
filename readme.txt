@@ -1078,15 +1078,17 @@ shipped with RakNet and are required for your case, please contact
 support@slikesoft.com. We'll then consider to readd these files then in a later
 version again.
 
-RakNet path                              | SLikeNet path               | Rationale
-DependentExtensions/openssl-1.0.0d       | DependentExtensions/openssl | [1]
-DependentExtensions/openssl-1.0.0d/*.dll | [REMOVED]                   | [2]
+RakNet path                                        | SLikeNet path                               | Rationale
+DependentExtensions/openssl-1.0.0d                 | DependentExtensions/openssl                 | [1]
+DependentExtensions/openssl-1.0.0d/*.dll           | [REMOVED]                                   | [2]
+DependentExtensions/openssl-1.0.0d/bin/openssl.cfg | DependentExtensions/openssl/bin/openssl.cnf | [3]
 
 [1] To prevent changes to path whenever the external is upgraded.
     Additionally lib, bin, and include directories contain subdirectories for
     the different platforms/configurations now.
 [2] Removed redundant files. Provided also in
     DependentExtensions/openssl-1.0.0d/bin/*.dll
+[3] The file was renamed to its original filename.
 
 3.6 Configuring SLikeNet
 SLikeNet uses macros to control certain settings. The overview of the available
