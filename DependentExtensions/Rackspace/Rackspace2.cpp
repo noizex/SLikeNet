@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2016-2017, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2016-2020, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -68,6 +68,7 @@ void Rackspace2::Update(void)
 			static FILE *fp = NULL;
 			if (fp == NULL)
 				fopen_s(&fp, "responses.txt", "wt");
+			// #low - add nullptr-check (incl. error logging) for fp
 			fprintf(fp, responseReceived.C_String());
 			fprintf(fp, "\n");
 			if (contentOffset==-1)

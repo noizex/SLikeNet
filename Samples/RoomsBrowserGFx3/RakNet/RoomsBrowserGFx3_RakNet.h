@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2017, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2017-2019, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -37,7 +37,7 @@ struct ServerAndRoomBrowserData
 	
 	/// For the LAN browser, it expects the offline ping response to be packed using the format from this structure
 	/// Therefore, to advertise that your server is available or updated, fill out the parameters in this structure, then call SetAsOfflinePingResponse()
-	/// When your server is no longer available, set the offline ping response to NULL
+	/// When your server is no longer available, set the offline ping response to null
 	void SetAsOfflinePingResponse(SLNet::RakPeerInterface *rakPeer);
 
 	/// Write to a RakNet table data structure, useful when creating the room or setting the room properties

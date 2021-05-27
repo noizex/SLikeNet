@@ -7,7 +7,7 @@
  *  of patent rights can be found in the RakNet Patents.txt file in the same directory.
  *
  *
- *  Modified work: Copyright (c) 2017, SLikeSoft UG (haftungsbeschränkt)
+ *  Modified work: Copyright (c) 2017-2019, SLikeSoft UG (haftungsbeschränkt)
  *
  *  This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
  *  license found in the license.txt file in the root directory of this source tree.
@@ -69,7 +69,7 @@ static RoomsErrorCodeDescription errorCodeDescriptions[ROOMS_ERROR_CODES_COUNT] 
 	{REC_ENTER_ROOM_CURRENTLY_IN_A_ROOM, "REC_ENTER_ROOM_CURRENTLY_IN_A_ROOM", "Failed to enter a room. You are already in a room."},
 	{REC_PROCESS_QUICK_JOINS_UNKNOWN_TITLE, "REC_PROCESS_QUICK_JOINS_UNKNOWN_TITLE", "Unknown title (Programmer error)."},
 	{REC_ROOM_QUERY_TOO_MANY_QUERIES, "REC_ROOM_QUERY_TOO_MANY_QUERIES,", "Failed to process room query. Too many queries."},
-	{REC_ROOM_QUERY_INVALID_QUERIES_POINTER, "REC_ROOM_QUERY_INVALID_QUERIES_POINTER", "Failed to process room query. NULL query pointer."},
+	{REC_ROOM_QUERY_INVALID_QUERIES_POINTER, "REC_ROOM_QUERY_INVALID_QUERIES_POINTER", "Failed to process room query. Query pointer is null."},
 	{REC_SEND_INVITE_UNKNOWN_ROOM_ID, "REC_SEND_INVITE_UNKNOWN_ROOM_ID", "Failed to send room invite. Your room no longer exists."},
 	{REC_SEND_INVITE_INVITEE_ALREADY_INVITED, "REC_SEND_INVITE_INVITEE_ALREADY_INVITED", "User was already invited to the room."},
 	{REC_SEND_INVITE_CANNOT_PERFORM_ON_SELF, "REC_SEND_INVITE_CANNOT_PERFORM_ON_SELF", "Cannot invite yourself."},

@@ -169,7 +169,7 @@ General:
   * several smaller changes, fixes, and code cleanup (#105, #156, #165 - RAKNET_29)
   * added new chapter about configuring SLikeNet (#105)
   * changed GitHub pull request markers to support pull requests from different GitHub forks (#105)
-  * dropped optional license requirement to notifiy "Mersenne Twister"-algorithm devs due to lack of valid contact information (#105)
+  * dropped optional license requirement to notify "Mersenne Twister"-algorithm devs due to lack of valid contact information (#105)
   * corrected text encoding throughout all files (#116)
   * several small documentation updates (#105, #112 - SLNET_10, #168)
 Core:

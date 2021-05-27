@@ -6,10 +6,15 @@
 *		Visit My Site At nehe.gamedev.net
 */
 
-/*
- * This file was taken from RakNet 4.082 without any modifications.
- * Please see licenses/RakNet license.txt for the underlying license and related copyright.
- */
+ /*
+  * This file was taken from RakNet 4.082.
+  * Please see licenses/RakNet license.txt for the underlying license and related copyright.
+  *
+  * Modified work: Copyright (c) 2015, SLikeSoft UG (haftungsbeschränkt)
+  *
+  * This source code was modified by SLikeSoft. Modifications are licensed under the MIT-style
+  * license found in the license.txt file in the root directory of this source tree.
+  */
 
 #include <windows.h>		// Header File For Windows
 #include <tchar.h>			// Header File For Unicode conversion support
