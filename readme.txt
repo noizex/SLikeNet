@@ -661,7 +661,7 @@ of the license file.
                 Layer Security (TLS) and Secure Socket Layer (SSL) protocols.
                 It is also a general-purpose cryptography library.
    URL: https://www.openssl.org/
-   Supported versions: 1.0.0d-1.0.1q (1.0.1q bundled)
+   Supported versions: 1.0.0d-1.0.1r (1.0.1r bundled)
    Used in:
       - Core (if OPEN_SSL_CLIENT_SUPPORT is set to 1)
    License: BSD-style license
@@ -1089,7 +1089,7 @@ version to a more recent build.
 In most cases you should not notice any difference. There are however a few
 cases where you might have to adjust your code/application.
 The following list mentions the potential breaking changes:
-- 1.0.1: DH handhsakes with params length < 768 bits are rejected
+- 1.0.1r: DH handhsakes with params length < 1024 bits are rejected
 - 1.0.1: ssize_t define was replaced with ossl_ssize_t
 
 3.5.8 Reorganized files/path structure
