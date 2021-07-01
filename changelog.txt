@@ -48,7 +48,7 @@ Samples:
     * improve error reporting in case of startup issues (#257)
 3rd Part Libraries:
   OpenSSL:
-    * updated bundled version to 1.0.1r (#3)
+    * updated bundled version to 1.0.1s (#3)
 Building:
   General:
     * all libs build with runtime type information by default (#130)
@@ -69,7 +69,7 @@ Building:
     * updated file name reference in XCode project (#188 - RAKNET_84)
   OpenSSL:
     + add debug and 64-bit flavors for OpenSSL (#254)
-    * added support for version 1.0.0e-1.0.1r (#3)
+    * added support for version 1.0.0e-1.0.1s (#3)
     * changed directory structure of bundled openssl files (#253)
     * several smaller changes (#253)
   Swig:
