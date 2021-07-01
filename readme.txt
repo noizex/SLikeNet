@@ -1089,7 +1089,11 @@ version to a more recent build.
 In most cases you should not notice any difference. There are however a few
 cases where you might have to adjust your code/application.
 The following list mentions the potential breaking changes:
-- 1.0.1: ssize_t define was replaced with ossl_ssize_t
+- 1.0.0p: stricter certificate fingerprint checks (rejecting certificates
+          were accepted with previous versions)
+- 1.0.0r: EXPORT ciphers no longer part of the DEFAULT ciphers (rejecting
+          ciphers which previous versions accepted)
+- 1.0.1 : ssize_t define was replaced with ossl_ssize_t
 - 1.0.1r: DH handhsakes with params length < 1024 bits are rejected
 
 3.5.8 Reorganized files/path structure
