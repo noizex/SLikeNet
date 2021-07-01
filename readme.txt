@@ -83,6 +83,7 @@ Table of Contents
    3.5.6.2 C#/Swig Visual Studio projects
    3.5.6.3 C# new bindings directory
    3.5.7   Changes in bundled 3rd-party dependencies
+   3.5.7.1 OpenSSL
    3.5.8   Reorganized files/path structure
    3.6     Configuring SLikeNet
    3.6.1   Security relevant settings
@@ -660,7 +661,7 @@ of the license file.
                 Layer Security (TLS) and Secure Socket Layer (SSL) protocols.
                 It is also a general-purpose cryptography library.
    URL: https://www.openssl.org/
-   Supported versions: 1.0.0d-1.0.0t (1.0.0t bundled)
+   Supported versions: 1.0.0d-1.0.1q (1.0.1q bundled)
    Used in:
       - Core (if OPEN_SSL_CLIENT_SUPPORT is set  to 1)
    License: BSD-style license
@@ -1079,6 +1080,17 @@ tools even though this update came with backwards compatibility concerns.
 Please be aware that nothing speaks against replacing the bundled version with
 an older version to restore compatibility with your application, if that's
 necessary (as long as we still support that older version - see chapter 2.4).
+
+3.5.7.1 OpenSSL
+Originally RakNet shipped OpenSSL 1.0.0d. As the 1.0.0 range is long EOL, no
+longer receives any updates (incl. security updates), and has build integration
+issues/limitations with recent build tools, we decided to update the bundled
+version to a more recent build.
+In most cases you should not notice any difference. There are however a few
+cases where you might have to adjust your code/application.
+The following list mentions the potential breaking changes:
+- 1.0.1: DH handhsakes with params length < 768 bits are rejected
+- 1.0.1: ssize_t define was replaced with ossl_ssize_t
 
 3.5.8 Reorganized files/path structure
 Compared to RakNet, SLikeNet made some changes to the file and path structure.
