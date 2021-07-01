@@ -661,7 +661,7 @@ of the license file.
                 Layer Security (TLS) and Secure Socket Layer (SSL) protocols.
                 It is also a general-purpose cryptography library.
    URL: https://www.openssl.org/
-   Supported versions: 1.0.0d-1.0.1s (1.0.1s bundled)
+   Supported versions: 1.0.0d-1.0.1t (1.0.1t bundled)
    Used in:
       - Core (if OPEN_SSL_CLIENT_SUPPORT is set to 1)
    License: BSD-style license
@@ -1102,6 +1102,7 @@ The following list mentions the potential breaking changes:
           details)
 - 1.0.1s: LOW ciphers no longer part of the DEFAULT ciphers (rejecting ciphers
           which previous versions accepted)
+          note: completely removed from DEFAULT ciphers in 1.0.1t actually
 
 3.5.8 Reorganized files/path structure
 Compared to RakNet, SLikeNet made some changes to the file and path structure.
