@@ -82,7 +82,8 @@ Table of Contents
    3.5.6.1 MakeSwig.bat/.sh
    3.5.6.2 C#/Swig Visual Studio projects
    3.5.6.3 C# new bindings directory
-   3.5.7   Reorganized files/path structure
+   3.5.7   Changes in bundled 3rd-party dependencies
+   3.5.8   Reorganized files/path structure
    3.6     Configuring SLikeNet
    3.6.1   Security relevant settings
    3.7     SLikeNet and C#
@@ -1069,7 +1070,17 @@ Related is the change that the interface files are no longer copied to the
 sample/test project. Instead these projects link the generated C# interfaces
 now directly from their new bindings directory.
 
-3.5.7 Reorganized files/path structure
+3.5.7 Changes in bundled 3rd-party dependencies
+SLikeNet bundles certain 3rd-party dependencies for ease of use. While we aim
+to preserve backwards compatibility where possible, we cannot always ensure
+this for bundled 3rd-party tools/libs, as this is beyond our control.
+This section provides an overview where we had to update bundled 3rd-party
+tools even though this update came with backwards compatibility concerns.
+Please be aware that nothing speaks against replacing the bundled version with
+an older version to restore compatibility with your application, if that's
+necessary (as long as we still support that older version - see chapter 2.4).
+
+3.5.8 Reorganized files/path structure
 Compared to RakNet, SLikeNet made some changes to the file and path structure.
 The following table provides an overview of the more likely cases
 users of RakNet might have relied on and hence are impacted by the change.
