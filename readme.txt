@@ -661,7 +661,7 @@ of the license file.
                 Layer Security (TLS) and Secure Socket Layer (SSL) protocols.
                 It is also a general-purpose cryptography library.
    URL: https://www.openssl.org/
-   Supported versions: 1.0.0d-1.0.1t (1.0.1t bundled)
+   Supported versions: 1.0.0d-1.0.1u (1.0.1u bundled)
    Used in:
       - Core (if OPEN_SSL_CLIENT_SUPPORT is set to 1)
    License: BSD-style license
