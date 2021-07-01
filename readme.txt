@@ -663,7 +663,7 @@ of the license file.
    URL: https://www.openssl.org/
    Supported versions: 1.0.0d-1.0.1q (1.0.1q bundled)
    Used in:
-      - Core (if OPEN_SSL_CLIENT_SUPPORT is set  to 1)
+      - Core (if OPEN_SSL_CLIENT_SUPPORT is set to 1)
    License: BSD-style license
    License file(s): licenses/OpenSSL License.txt
 
