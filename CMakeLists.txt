@@ -9,7 +9,7 @@
 # license found in the license.txt file in the root directory of this source tree.
 #
 
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 3.1)
 
 # CMake policy settings
 if( POLICY CMP0037 )
@@ -52,21 +52,25 @@ ELSE(WIN32 AND NOT UNIX)
 	set(SLIKENET_LIBRARY_LIBS ${SLIKENET_LIBRARY_LIBS} pthread)
 ENDIF(WIN32 AND NOT UNIX)
 
+set(CMAKE_CXX_STANDARD 11 CACHE STRING "The C++ standard to use")
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+
 # enable C++11 language support for GCC
-include(CheckCXXCompilerFlag)
-CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
-CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
-if(COMPILER_SUPPORTS_CXX11)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-elseif(COMPILER_SUPPORTS_CXX0X)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
-else()
-    message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
-endif()
+#include(CheckCXXCompilerFlag)
+#CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
+#CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
+#if(COMPILER_SUPPORTS_CXX11)
+#    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+#elseif(COMPILER_SUPPORTS_CXX0X)
+#    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
+#else()
+#    message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
+#endif()
 
 # options
 IF (WIN32 AND NOT UNIX)
-	option(SLIKENET_ENABLE_SAMPLES "Generate sample projects if true."                 TRUE)
+	option(SLIKENET_ENABLE_SAMPLES "Generate sample projects if true."                 FALSE)
 ELSE (WIN32 AND NOT UNIX)
 	# building samples is disabled atm by default on Unix/Mac, since the sample projects won't compile correctly
 	option(SLIKENET_ENABLE_SAMPLES "Generate sample projects if true."                 FALSE)
@@ -84,6 +88,6 @@ add_subdirectory(Lib)
 
 set(SLIKENET_COMMON_LIBS SLikeNetLibStatic)
 
-if(SLIKENET_ENABLE_SAMPLES)
-	add_subdirectory(Samples)
-endif()
+#if(SLIKENET_ENABLE_SAMPLES)
+	#add_subdirectory(Samples)
+#endif()
