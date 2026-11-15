@@ -1091,7 +1091,10 @@ RAK_THREAD_DECLARATION(SLNet::UpdateTCPInterfaceLoop)
 			{
 				newSock = accept__(sts->listenSocket, (sockaddr*)&sockAddr, (socklen_t*)&sockAddrSize);
 
-				if (newSock != 0)
+				// accept() returns -1 on failure (on Linux, e.g. once Stop() shuts the listen
+				// socket down while select() waits). Storing -1 as an active client socket
+				// made the next FD_ISSET abort under _FORTIFY_SOURCE.
+				if (newSock != 0 && (int)newSock != -1)
 				{
 					int newRemoteClientIndex=-1;
 					for (newRemoteClientIndex=0; newRemoteClientIndex < sts->remoteClientsLength; newRemoteClientIndex++)
