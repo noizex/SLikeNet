@@ -305,7 +305,9 @@ void TCPInterface::Stop(void)
 	// Stuff from here on to the end of the function is not threadsafe
 	for (i=0; i < remoteClientsLength; i++)
 	{
-		closesocket__(remoteClients[i].socket);
+		// 0 marks an unused slot. close(0) would close the process's stdin on POSIX.
+		if (remoteClients[i].socket != 0)
+			closesocket__(remoteClients[i].socket);
 #if OPEN_SSL_CLIENT_SUPPORT==1
 		remoteClients[i].FreeSSL();
 #endif
